@@ -1,0 +1,132 @@
+.navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+  z-index: 10;
+
+  &__active {
+    transform: translateX(-100%);
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+
+  &__side-menu {
+    width: 80%;
+    background-color: $black;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 120px;
+    padding: 1rem;
+  }
+
+  &__close {
+    color: $orange;
+    font-size: 2.75rem;
+    padding: 1rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__bottom {
+    font-size: 2rem;
+    color: $white;
+  }
+
+  &__option {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    margin-left: 2rem;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &__option-topic {
+    display: flex;
+    align-items: center;
+  }
+
+  &__option-topic-name {
+    display: inline-block;
+    padding-left: 1rem;
+  }
+
+  &__shorties {
+    color: $orange;
+  }
+
+  &__option-more {
+    padding-right: 1rem;
+  }
+
+  &__membership {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    margin: 1rem;
+    color: #e26150;
+    font-size: 1.5rem;
+    border: 2px solid #e26150;
+    border-radius: 10px;
+    transition: color 0.3s, border 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: $orange;
+      border: 2px solid $orange;
+    }
+  }
+
+  &__other-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 0.25rem;
+    padding-bottom: 15rem;
+  }
+
+  &__other-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem 0;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: $orange;
+    }
+
+    p {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+}

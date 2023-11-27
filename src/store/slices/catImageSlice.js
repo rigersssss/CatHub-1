@@ -1,32 +1,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchCatImage } from "./api";
+import { fetchCatImages } from "./api";
 
-export const fetchCatImageAsync = createAsyncThunk(
+export const fetchCatImagesAsync = createAsyncThunk(
   "cat/fetchCatImage",
   async () => {
-    const imageUrl = await fetchCatImage();
-    return imageUrl;
+    const imageUrls = await fetchCatImages();
+    return imageUrls;
   }
 );
 
 const catImageSlice = createSlice({
   name: "cat",
   initialState: {
-    imageUrl: "",
+    imageUrls: [],
     status: "idle",
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCatImageAsync.pending, (state) => {
+      .addCase(fetchCatImagesAsync.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchCatImageAsync.fulfilled, (state, action) => {
+      .addCase(fetchCatImagesAsync.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.imageUrl = action.payload;
+        state.imageUrls = action.payload;
       })
-      .addCase(fetchCatImageAsync.rejected, (state, action) => {
+      .addCase(fetchCatImagesAsync.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
@@ -34,5 +34,5 @@ const catImageSlice = createSlice({
 });
 
 export default catImageSlice.reducer
-export const selectCatImageUrl = (state) => state.cat.imageUrl
+export const selectCatImageUrls = (state) => state.cat.imageUrls
 export const selectCatStatus = (state) => state.cat.status

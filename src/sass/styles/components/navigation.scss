@@ -12,7 +12,7 @@
   }
 
   &__background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -22,8 +22,10 @@
   }
 
   &__side-menu {
+    overflow-y: auto;
     width: 80%;
     background-color: $black;
+    height: 100vh;
   }
 
   &__top {

@@ -8,8 +8,9 @@ import {
   AiOutlineUsergroupAdd,
   AiFillSafetyCertificate,
   AiFillRead,
+  AiFillGithub
 } from "react-icons/ai";
-import { FaCat, FaPaw, FaShoppingCart } from "react-icons/fa";
+import { FaCat, FaPaw } from "react-icons/fa";
 
 function NavigationOptions() {
   return (
@@ -101,8 +102,8 @@ function NavigationOptions() {
           <p>Cat Health</p>
         </div>
         <div className="navigation__other-option">
-          <FaShoppingCart />
-          <p>Go To Shop</p>
+          <AiFillGithub />
+          <p>GitHub</p>
         </div>
       </div>
     </div>

@@ -1,25 +1,11 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCatImageAsync, selectCatImageUrl, selectCatStatus } from "../store/slices/catImageSlice";
 import { AiFillHeart, AiFillDislike, AiFillLike } from "react-icons/ai";
-// import test from "../images/test-cat.jpg";
 
-function ImageContainer() {
-  const dispatch = useDispatch()
-  const catImageUrl = useSelector(selectCatImageUrl)
-  const catStatus = useSelector(selectCatStatus)
-
-  useEffect(() => {
-    if (catStatus === 'idle') {
-      dispatch(fetchCatImageAsync())
-    }
-  }, [catStatus, dispatch])
-
+function ImageContainer({imageUrl}) {
   return (
     <div className="image-container">
       <figure>
         <div>
-          <img src={catImageUrl} alt="cat" className="image-container__image" />
+          <img src={imageUrl} alt="cat" className="image-container__image" />
         </div>
         <div className="image-container__info">
           <p>Views</p>

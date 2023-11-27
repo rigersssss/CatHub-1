@@ -1,0 +1,63 @@
+.image-container {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  height: 320px;
+  background-color: $black;
+  font-size: 1.25rem;
+  color: $white;
+
+  &__image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-height: 250px;
+  }
+
+  &__info, &__favorite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__heart-icon {
+    font-size: 3rem;
+    cursor: pointer;
+    transition: color .3s, scale .3s;
+
+    &:hover {
+        color: $orange;
+        scale: 1.2;
+    }
+  }
+
+  &__favorite-text {
+    font-weight: 700;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+  }
+
+  &__like, &__dislike {
+    font-size: 2.5rem;
+    transition: color .3s;
+    cursor: pointer;
+  }
+
+  &__dislike {
+    margin-right: 2rem;
+    margin-left: 1rem;
+    &:hover {
+        color: rgb(228, 54, 54);
+    }
+  }
+
+  &__like {
+    &:hover {
+        color: rgb(33, 167, 33);
+    }
+  }
+}

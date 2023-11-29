@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 30% 40% 30%;
     padding: 1rem;
+    z-index: 10;
   }
 
   &__container {

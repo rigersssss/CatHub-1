@@ -3,7 +3,7 @@ import logo from "../images/logo.png";
 import NavigationOptions from "./NavigationOptions";
 import { useNavigate } from "react-router-dom";
 
-function MobileNavigation({setShowNav, showNav}) {
+function MobileNavigation({ setShowNav, showNav }) {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
@@ -11,34 +11,29 @@ function MobileNavigation({setShowNav, showNav}) {
   };
 
   const handleCloseClick = () => {
-    setShowNav(false)
-  }
+    setShowNav(false);
+  };
 
   return (
     <div className={`navigation ${showNav ? "" : "navigation__active"}`}>
-      <div className="navigation__background">
-        <div className="navigation__side-menu">
-          <div className="navigation__top">
-            <div>
-              <button onClick={handleLogoClick}>
-                <img
-                  src={logo}
-                  alt="website logo"
-                  className="navigation__logo"
-                />
-              </button>
-            </div>
-            <div>
-              <button className="navigation__close" onClick={handleCloseClick}>
-                <AiOutlineClose />
-              </button>
-            </div>
+      <div className="navigation__side-menu">
+        <div className="navigation__top">
+          <div>
+            <button onClick={handleLogoClick}>
+              <img src={logo} alt="website logo" className="navigation__logo" />
+            </button>
           </div>
-          <div className="navigation__bottom">
-            <NavigationOptions />
+          <div>
+            <button className="navigation__close" onClick={handleCloseClick}>
+              <AiOutlineClose />
+            </button>
           </div>
         </div>
+        <div className="navigation__bottom">
+          <NavigationOptions />
+        </div>
       </div>
+      <div className="navigation__background" onClick={handleCloseClick}></div>
     </div>
   );
 }

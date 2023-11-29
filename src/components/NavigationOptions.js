@@ -95,7 +95,7 @@ function NavigationOptions() {
         </div>
         <div className="navigation__other-option">
           <AiFillRead />
-          <p>Blog</p>
+          <p>Breed Info</p>
         </div>
         <div className="navigation__other-option">
           <FaPaw />

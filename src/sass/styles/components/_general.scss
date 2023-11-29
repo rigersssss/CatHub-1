@@ -13,3 +13,7 @@ button {
   font-size: inherit;
   transition: color .3s;
 }
+
+* {
+  scrollbar-color: $orange $black;
+}

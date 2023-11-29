@@ -1,0 +1,15 @@
+@mixin upButtonAnimation {
+  animation: upButtonAnimation 1s linear infinite;
+  @keyframes upButtonAnimation {
+    0% {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+    }
+    100% {
+      width: 150%;
+      height: 150%;
+      opacity: 0;
+    }
+  }
+}

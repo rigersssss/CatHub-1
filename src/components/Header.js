@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState, useEffect} from "react";
 import Navigation from "./Navigation";
 import { useNavigate } from "react-router-dom";
 import {
@@ -13,6 +13,13 @@ function Header() {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (showNav) {
+      document.body.classList.add("body-overflow-hidden");
+    } else {
+      document.body.classList.remove("body-overflow-hidden");
+    }
+  }, [showNav]);
 
   const handleLogoClick = () => {
     navigate("/");
@@ -56,10 +63,10 @@ function Header() {
             <button className="header__bottom-button">Catsino</button>
           </div>
           <div className="header__bottom-nav">
-            <button className="header__bottom-button">Feed Cats 1</button>
+            <button className="header__bottom-button"><a href="https://www.alleycat.org/">Help Cats 1</a></button>
           </div>
           <div className="header__bottom-nav">
-            <button className="header__bottom-button">Feed Cats 2</button>
+          <button className="header__bottom-button"><a href="https://icatcare.org/">Help Cats 2</a></button>
           </div>
         </div>
       </header>

@@ -8,6 +8,7 @@ import {
 import OriginalWebsite from "../components/OriginalWebsite";
 import Header from "../components/Header";
 import ImageContainer from "../components/ImageContainer";
+import Suggestions from "../components/Suggestions";
 
 function MainPage() {
   const dispatch = useDispatch();
@@ -30,6 +31,8 @@ function MainPage() {
     <div className="main">
       <Header />
       <h1 className="main__h1">Trending cat images</h1>
+      <Suggestions />
+      <h2 className="main__h2">Random</h2>
       <main>
         {imageUrls.map((url, index) => (
           <ImageContainer key={index} imageUrl={url.url} />

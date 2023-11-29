@@ -1,6 +1,7 @@
 // utilities
-@import "./styles/components/general";
 @import "./styles/components/colors";
+@import "./styles/components/general";
+@import "./styles/components/animations";
 
 // website styles
 @import "./styles/mainpage";
@@ -8,6 +9,8 @@
 @import "./styles/components/header.scss";
 @import "./styles/components/navigation.scss";
 @import "./styles/components/imageContainer.scss";
+@import "./styles/components/suggestions.scss";
+@import "./styles/components/upButton.scss";
 
 *,
 *::before,

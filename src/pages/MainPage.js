@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  AiFillGithub
+} from "react-icons/ai";
+import {
   fetchCatImagesAsync,
   selectCatImageUrls,
   selectCatStatus,
@@ -38,6 +41,7 @@ function MainPage() {
           <ImageContainer key={index} imageUrl={url.url} />
         ))}
       </main>
+      <div className="main__github">Check on GitHub: <a href="https://github.com/BZajc/CatHub"><AiFillGithub className="main__github-icon"/></a></div>
       <OriginalWebsite />
     </div>
   );

@@ -1,12 +1,8 @@
 a {
   text-decoration: none;
 
-  &:visited {
-    color: $white;
-  }
-
-  &:active {
-    color: $white;
+  &:link, &:visited, &:active {
+    color: inherit;
   }
 }
 

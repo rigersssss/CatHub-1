@@ -1,5 +1,5 @@
 import { useState} from "react";
-import MobileNavigation from "./Navigation";
+import Navigation from "./Navigation";
 import { useNavigate } from "react-router-dom";
 import {
   AiOutlineUnorderedList,
@@ -63,7 +63,7 @@ function Header() {
           </div>
         </div>
       </header>
-      <MobileNavigation setShowNav={setShowNav} showNav={showNav} />
+      <Navigation setShowNav={setShowNav} showNav={showNav} />
       <div className="header__image-box">
         <div className="header__image-text">
           <p>

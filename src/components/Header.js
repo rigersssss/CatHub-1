@@ -12,7 +12,7 @@ import Catsino from "./Catsino";
 
 function Header() {
   const [showNav, setShowNav] = useState(false);
-  const [showCatsino, setShowCatsino] = useState(true)
+  const [showCatsino, setShowCatsino] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {

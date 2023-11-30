@@ -14,7 +14,7 @@
   opacity: 0;
   z-index: -1;
   transition: color .3s, opacity .3s;
-  
+  cursor: pointer;
 
   &:hover {
     color: $white;

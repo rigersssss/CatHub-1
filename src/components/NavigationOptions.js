@@ -89,22 +89,22 @@ function NavigationOptions() {
         <p>Get Full CatHub Membership</p>
       </div>
       <div className="navigation__other-options">
-        <div className="navigation__other-option">
+        <a href="google.com" className="navigation__other-option">
           <AiFillSafetyCertificate />
           <p>Trust & Safety</p>
-        </div>
-        <div className="navigation__other-option">
+        </a>
+        <a href="google.com" className="navigation__other-option">
           <AiFillRead />
           <p>Breed Info</p>
-        </div>
-        <div className="navigation__other-option">
+        </a>
+        <a href="google.com" className="navigation__other-option">
           <FaPaw />
           <p>Cat Health</p>
-        </div>
-        <div className="navigation__other-option">
+        </a>
+        <a href="https://www.arealme.com/what-kind-of-cat-are-you/en/" className="navigation__other-option">
           <AiFillGithub />
           <p>GitHub</p>
-        </div>
+        </a>
       </div>
     </div>
   );

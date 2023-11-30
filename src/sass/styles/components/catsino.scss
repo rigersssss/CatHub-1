@@ -1,0 +1,85 @@
+.catsino {
+  &__wrapper {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 315px;
+    height: 315px;
+    color: $white;
+    text-align: center;
+    border: 2px solid $orange;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    background-image: url("../../../images/catsino.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10;
+  }
+
+  &__container-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &__container-text {
+    z-index: 10;
+  }
+
+  &__h3 {
+    color: $orange;
+  }
+
+  &__close-btn {
+    display: block;
+    margin-left: auto;
+  }
+
+  &__close-icon {
+    display: inline;
+    text-align: right;
+    margin: 1rem;
+    font-size: 2.5rem;
+    color: $white;
+    cursor: pointer;
+    transition: color 0.3s;
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &__text {
+    padding: 1rem;
+  }
+
+  &__poker-icon {
+    font-size: 5rem;
+  }
+
+  &__orange-text {
+    color: $orange;
+  }
+
+  &__background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 8;
+  }
+}

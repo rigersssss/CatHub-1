@@ -8,18 +8,20 @@ import {
 } from "react-icons/ai";
 import logo from "../images/logo.png";
 import headerImage from "../images/header-image.png";
+import Catsino from "./Catsino";
 
 function Header() {
   const [showNav, setShowNav] = useState(false);
+  const [showCatsino, setShowCatsino] = useState(true)
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (showNav) {
+    if (showNav || showCatsino) {
       document.body.classList.add("body-overflow-hidden");
     } else {
       document.body.classList.remove("body-overflow-hidden");
     }
-  }, [showNav]);
+  }, [showNav, showCatsino]);
 
   const handleLogoClick = () => {
     navigate("/");
@@ -28,6 +30,10 @@ function Header() {
   const handleShowNav = () => {
     setShowNav(!showNav);
   };
+
+  const handleCatsinoClick = () => {
+    setShowCatsino(!showCatsino)
+  }
 
   return (
     <div>
@@ -60,7 +66,7 @@ function Header() {
             <button className="header__bottom-button">More cats</button>
           </div>
           <div className="header__bottom-nav">
-            <button className="header__bottom-button">Catsino</button>
+            <button className="header__bottom-button" onClick={handleCatsinoClick}>Catsino</button>
           </div>
           <div className="header__bottom-nav">
             <button className="header__bottom-button"><a href="https://www.alleycat.org/">Help Cats 1</a></button>
@@ -90,6 +96,7 @@ function Header() {
           className="header__image"
         />
       </div>
+      {showCatsino && <Catsino setShowCatsino={setShowCatsino}/>}
     </div>
   );
 }

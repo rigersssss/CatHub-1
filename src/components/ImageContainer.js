@@ -8,15 +8,13 @@ function ImageContainer({ imageUrl }) {
   const [showPopup, setShowPopup] = useState(false);
   const [randomViews, setRandomViews] = useState(0);
   const [favoriteClicked, setFavoriteClicked] = useState(false);
+  const [randomUser, setRandomUser] = useState("");
 
   const randomRating = (Math.floor(Math.random() * 4) + 7) / 2;
 
   const handleFavoriteClick = () => {
     setFavoriteClicked(!favoriteClicked);
   };
-
-  // Generate random nickname for a username
-  const generateRandomUser = faker.internet.userName;
 
   // Show popup on rating stars while clicked
   const handleRatingClick = () => {
@@ -25,6 +23,12 @@ function ImageContainer({ imageUrl }) {
       setShowPopup(false);
     }, 1000);
   };
+
+  // Generate random nickname for a username
+  useEffect(() => {
+    const generateRandomUsername = faker.internet.userName;
+    setRandomUser(generateRandomUsername());
+  }, []);
 
   // Prevents to re-generate views after every interaction with rating stars
   useEffect(() => {
@@ -71,7 +75,7 @@ function ImageContainer({ imageUrl }) {
             onClick={handleFavoriteClick}
           />
         </div>
-        <p className="image-container__username">@{generateRandomUser()}</p>
+        <p className="image-container__username">@{randomUser}</p>
       </figure>
     </div>
   );

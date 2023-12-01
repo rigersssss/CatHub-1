@@ -29,7 +29,6 @@ export const fetchCatBreeds = async () => {
         params: { api_key: API_KEY },
       });
       const catBreeds = response.data.map((breed) => breed.name);
-      console.log("Cat Breeds:", catBreeds);
       return catBreeds;
     } catch (error) {
       console.error("Error fetching cat breeds:", error);

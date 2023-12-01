@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   AiFillGithub
@@ -12,11 +12,15 @@ import OriginalWebsite from "../components/OriginalWebsite";
 import Header from "../components/Header";
 import ImageContainer from "../components/ImageContainer";
 import Suggestions from "../components/Suggestions";
-
 function MainPage() {
   const dispatch = useDispatch();
   const imageUrls = useSelector(selectCatImageUrls);
   const status = useSelector(selectCatStatus);
+  const [clickedButton, setClickedButton] = useState("");
+
+  const handleButtonClicked = (value) => {
+    setClickedButton(value);
+  };
 
   useEffect(() => {
     if (status === "idle") {
@@ -34,8 +38,8 @@ function MainPage() {
     <div className="main">
       <Header />
       <h1 className="main__h1">Trending cat images</h1>
-      <Suggestions />
-      <h2 className="main__h2">Random</h2>
+      <Suggestions onButtonClicked={handleButtonClicked} />
+      <h2 className="main__h2">{clickedButton !== "" ? clickedButton : "Random"}</h2>
       <main>
         {imageUrls.map((url, index) => (
           <ImageContainer key={index} imageUrl={url.url} />

@@ -6,11 +6,10 @@ import {
   AiFillCalculator,
   AiFillCamera,
   AiOutlineUsergroupAdd,
-  AiFillSafetyCertificate,
   AiFillRead,
   AiFillGithub
 } from "react-icons/ai";
-import { FaCat, FaPaw } from "react-icons/fa";
+import { FaCat, FaPaw, FaFish } from "react-icons/fa";
 
 function NavigationOptions() {
   return (
@@ -90,8 +89,8 @@ function NavigationOptions() {
       </div>
       <div className="navigation__other-options">
         <a href="google.com" className="navigation__other-option">
-          <AiFillSafetyCertificate />
-          <p>Trust & Safety</p>
+          <FaFish />
+          <p>Treats</p>
         </a>
         <a href="google.com" className="navigation__other-option">
           <AiFillRead />

@@ -28,7 +28,7 @@ function Catsino({ setShowCatsino }) {
           </div>
         </div>
       </div>
-      <div className="catsino__background"></div>
+      <div className="catsino__background" onClick={handleCloseClick}></div>
     </div>
   );
 }

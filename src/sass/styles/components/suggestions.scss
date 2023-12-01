@@ -11,11 +11,18 @@
     border-radius: 15px;
     padding: 0.75rem;
     margin: 0.5rem 0.75rem;
-    transition: color 0.3s, border 0.3s;
+    transition: color 0.3s, border 0.3s;;
+    white-space: nowrap;
     cursor: pointer;
     &:hover {
       color: $white;
       border: 1px solid $white;
     }
   }
+}
+
+// Set dynamically
+.active-suggestions-button {
+  border: 1px solid $orange;
+  color: $orange;
 }

@@ -59,4 +59,4 @@ const catImageSlice = createSlice({
 export default catImageSlice.reducer;
 export const selectCatImageUrls = (state) => state.cat.imageUrls;
 export const selectCatStatus = (state) => state.cat.status;
-export const selectCatBreeds = (state) => state.cat.breeds;
+export const selectCatBreeds = (state) => state.cat.catBreeds;

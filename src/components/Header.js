@@ -6,6 +6,7 @@ import {
   AiOutlineSearch,
   AiOutlineUser,
 } from "react-icons/ai";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import logo from "../images/logo.png";
 import headerImage from "../images/header-image.png";
 import Catsino from "./Catsino";
@@ -69,10 +70,10 @@ function Header() {
             <button className="header__bottom-button" onClick={handleCatsinoClick}>Catsino</button>
           </div>
           <div className="header__bottom-nav">
-            <button className="header__bottom-button"><a href="https://www.alleycat.org/">Help Cats 1</a></button>
+            <button className="header__bottom-button"><a href="https://www.alleycat.org/">Help Cats 1 <FaExternalLinkAlt /></a></button>
           </div>
           <div className="header__bottom-nav">
-          <button className="header__bottom-button"><a href="https://icatcare.org/">Help Cats 2</a></button>
+          <button className="header__bottom-button"><a href="https://icatcare.org/">Help Cats 2 <FaExternalLinkAlt /></a></button>
           </div>
         </div>
       </header>

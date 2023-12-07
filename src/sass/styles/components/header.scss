@@ -23,6 +23,7 @@
   }
 
   &__icon {
+    cursor: pointer;
     &--burger {
       color: $orange;
       &:hover {
@@ -43,6 +44,7 @@
 
   &__logo {
     width: 100px;
+    cursor: pointer;
   }
 
   &__bottom-nav-container {

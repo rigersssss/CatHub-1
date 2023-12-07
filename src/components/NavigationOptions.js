@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   AiFillVideoCamera,
   AiOutlineSend,
@@ -7,11 +8,47 @@ import {
   AiFillCamera,
   AiOutlineUsergroupAdd,
   AiFillRead,
-  AiFillGithub
+  AiFillGithub,
+  AiFillHeart,
 } from "react-icons/ai";
-import { FaCat, FaPaw, FaFish } from "react-icons/fa";
+import { FaCat, FaFish, FaExternalLinkAlt } from "react-icons/fa";
+import TagsList from "./TagsList";
+import BreedsList from "./BreedsList";
+import CommunitiesList from "./CommunitiesList";
 
 function NavigationOptions() {
+  const [showSubOptions, setShowSubOptions] = useState({
+    showTags: false,
+    showBreeds: false,
+    showCommunities: false,
+  });
+
+  const handleClick = (data) => {
+    switch (data) {
+      case "tags":
+        setShowSubOptions({
+          ...showSubOptions,
+          showTags: !showSubOptions.showTags,
+        });
+        break;
+      case "breeds":
+        setShowSubOptions({
+          ...showSubOptions,
+          showBreeds: !showSubOptions.showBreeds,
+        });
+        break;
+      case "communities":
+        setShowSubOptions({
+          ...showSubOptions,
+          showCommunities: !showSubOptions.showCommunities,
+        });
+        break;
+      default:
+        console.log("Something went wrong");
+        break;
+    }
+  };
+
   return (
     <div>
       <ul className="navigation__options-list">
@@ -19,10 +56,7 @@ function NavigationOptions() {
           <div className="navigation__option">
             <div className="navigation__option-topic">
               <AiFillVideoCamera />
-              <p className="navigation__option-topic-name">Cat Videos</p>
-            </div>
-            <div className="navigation__option-more">
-              <AiOutlineCaretDown />
+              <p className="navigation__option-topic-name">GIFs</p>
             </div>
           </div>
         </li>
@@ -35,26 +69,38 @@ function NavigationOptions() {
           </div>
         </li>
         <li>
-          <div className="navigation__option">
+          <div
+            className="navigation__option"
+            onClick={() => {
+              handleClick("tags");
+            }}
+          >
             <div className="navigation__option-topic">
               <AiOutlineAppstore />
-              <p className="navigation__option-topic-name">Categories</p>
+              <p className="navigation__option-topic-name">Tags</p>
             </div>
             <div className="navigation__option-more">
               <AiOutlineCaretDown />
             </div>
           </div>
+          {showSubOptions.showTags && <TagsList />}
         </li>
         <li>
-          <div className="navigation__option">
+          <div
+            className="navigation__option"
+            onClick={() => {
+              handleClick("breeds");
+            }}
+          >
             <div className="navigation__option-topic">
               <FaCat />
-              <p className="navigation__option-topic-name">Best cats</p>
+              <p className="navigation__option-topic-name">Breeds</p>
             </div>
             <div className="navigation__option-more">
               <AiOutlineCaretDown />
             </div>
           </div>
+          {showSubOptions.showBreeds && <BreedsList />}
         </li>
         <li>
           <div className="navigation__option">
@@ -73,7 +119,12 @@ function NavigationOptions() {
           </div>
         </li>
         <li>
-          <div className="navigation__option">
+          <div
+            className="navigation__option"
+            onClick={() => {
+              handleClick("communities");
+            }}
+          >
             <div className="navigation__option-topic">
               <AiOutlineUsergroupAdd />
               <p className="navigation__option-topic-name">Communities</p>
@@ -82,6 +133,7 @@ function NavigationOptions() {
               <AiOutlineCaretDown />
             </div>
           </div>
+          {showSubOptions.showCommunities && <CommunitiesList />}
         </li>
       </ul>
       <div className="navigation__membership">
@@ -96,11 +148,14 @@ function NavigationOptions() {
           <AiFillRead />
           <p>Breed Info</p>
         </a>
-        <a href="google.com" className="navigation__other-option">
-          <FaPaw />
-          <p>Cat Health</p>
+        <a href="https://www.webmd.com/pets/cats/default.htm" className="navigation__other-option">
+          <AiFillHeart />
+          <p>Cat Health <FaExternalLinkAlt/></p>
         </a>
-        <a href="https://www.arealme.com/what-kind-of-cat-are-you/en/" className="navigation__other-option">
+        <a
+          href="https://www.arealme.com/what-kind-of-cat-are-you/en/"
+          className="navigation__other-option"
+        >
           <AiFillGithub />
           <p>GitHub</p>
         </a>

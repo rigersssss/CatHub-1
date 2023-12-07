@@ -1,0 +1,35 @@
+.footer {
+  font-size: 1.15rem;
+  color: $gray;
+  padding: 0.5rem;
+  text-align: center;
+  width: 95%;
+  margin: 0 auto 5rem;
+
+  p {
+    padding: 1rem;
+    border-bottom: 1px solid $gray;
+    border-top: 1px solid $gray;
+  }
+
+  &__list-options {
+    list-style: none;
+  }
+
+  &__option {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid $gray;
+    cursor: pointer;
+  }
+
+  &__option-title {
+    font-size: 3rem;
+  }
+
+  &__option-button {
+    font-size: 3rem;
+    color: $gray;
+  }
+}

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchCatBreedsAsync,
   selectCatBreeds,
+  setUserSelectedBreed,
 } from "../store/slices/catImageSlice";
 
 function Suggestions({ onButtonClicked }) {
@@ -16,7 +17,6 @@ function Suggestions({ onButtonClicked }) {
   }, [dispatch]);
 
   const logRandomBreeds = useCallback(() => {
-    console.log("Cat Breeds:", catBreeds);
     if (catBreeds !== undefined && catBreeds.length > 0) {
       // Create copy of an array with breeds
       const breedsCopy = catBreeds.slice();
@@ -29,15 +29,16 @@ function Suggestions({ onButtonClicked }) {
     }
   }, [catBreeds]);
 
-  
-    const handleButtonClick = (value) => {
-      onButtonClicked(value);
-      setActiveButton(value);
-    };
-
   useEffect(() => {
     logRandomBreeds();
   }, [logRandomBreeds]);
+
+  const handleButtonClick = (breed) => {
+    const breedObject = breed === "Random" ? { name: "Random", id: "Random" } : breed;
+    dispatch(setUserSelectedBreed(breedObject));
+    onButtonClicked(breedObject.name);
+    setActiveButton(breedObject.name);
+  };
 
   return (
     <div className="suggestions">
@@ -55,14 +56,14 @@ function Suggestions({ onButtonClicked }) {
         <button
           key={index}
           className={`suggestions__option ${
-            activeButton === breed ? "active-suggestions-button" : ""
+            activeButton === breed.name ? "active-suggestions-button" : ""
           }`}
           onClick={() => handleButtonClick(breed)}
         >
-          {breed}
+          {breed.name}
         </button>
       ))}
-      <button className="suggestions__option" onClick={logRandomBreeds}>
+      <button className="suggestions__option">
         More...
       </button>
     </div>

@@ -22,10 +22,16 @@ const catImageSlice = createSlice({
   initialState: {
     imageUrls: [],
     catBreeds: [],
+    userSelectedBreed: {name: "", id: ""},
     status: "idle",
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setUserSelectedBreed: (state, action) => {
+      state.userSelectedBreed = action.payload
+      console.log(state.userSelectedBreed);
+    }
+  },
   extraReducers: (builder) => {
     builder
       // Images request
@@ -56,7 +62,9 @@ const catImageSlice = createSlice({
   },
 });
 
+export const {setUserSelectedBreed} = catImageSlice.actions
 export default catImageSlice.reducer;
 export const selectCatImageUrls = (state) => state.cat.imageUrls;
 export const selectCatStatus = (state) => state.cat.status;
 export const selectCatBreeds = (state) => state.cat.catBreeds;
+export const selectUserSelectedBreed = (state) => state.cat.userSelectedBreed

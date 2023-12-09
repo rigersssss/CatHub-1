@@ -11,6 +11,8 @@ import OriginalWebsite from "../components/OriginalWebsite";
 import ImageContainer from "../components/ImageContainer";
 import Suggestions from "../components/Suggestions";
 import Footer from "../components/Footer";
+import Discover from "../components/Discover";
+
 function MainPage() {
   const dispatch = useDispatch();
 
@@ -49,6 +51,7 @@ function MainPage() {
           </a>
         </div>
       )}
+      <Discover />
       <Footer />
       <OriginalWebsite />
     </div>

@@ -1,0 +1,92 @@
+.discover {
+  width: auto;
+  height: auto;
+  margin: 1rem;
+  padding: 1rem;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__tab {
+    font-size: 2.5rem;
+    color: $white;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__tiles-box {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+  }
+
+  &__tile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100px;
+    width: 150px;
+    color: $gray;
+    font-size: 2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: scale 0.3s;
+
+    &:hover {
+      scale: 1.1;
+
+      .discover__tile-topic {
+        color: $white;
+        transition: color 0.3s;
+      }
+
+      .discover__tile-background {
+        filter: blur(0px);
+        transition: filter 0.3s;
+      }
+    }
+  }
+
+  &__tile-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(2px);
+    &--gifs {
+      background-image: url("../../../images/gif-tile.jpg");
+    }
+    &--breeds {
+      background-image: url("../../../images/breeds-tile.png");
+    }
+    &--tags {
+      background-image: url("../../../images/tags-tile.jpg");
+    }
+    &--images {
+      background-image: url("../../../images/images-tile.png");
+    }
+  }
+
+  &__tile-dark-filter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  &__tile-topic {
+    z-index: 2;
+  }
+}

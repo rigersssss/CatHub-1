@@ -24,6 +24,10 @@
     font-size: 1.75rem;
     transition: color 0.3s;
 
+    a {
+        display: flex;align-items: center;
+    }
+
     &:hover {
       color: $orange;
     }

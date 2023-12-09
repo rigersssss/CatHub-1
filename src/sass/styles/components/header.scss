@@ -40,6 +40,9 @@
     &--search {
       margin-right: 1rem;
     }
+    &:active {
+      color: $orange;
+    }
   }
 
   &__logo {

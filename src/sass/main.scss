@@ -5,6 +5,7 @@
 
 // website styles
 @import "./styles/mainpage";
+@import "./styles/notFoundPage.scss";
 @import "./styles/components/originalWebsite";
 @import "./styles/components/header.scss";
 @import "./styles/components/navigation.scss";
@@ -14,6 +15,7 @@
 @import "./styles/components/catsino.scss";
 @import "./styles/components/footer.scss";
 @import "./styles/components/discover.scss";
+@import "./styles/components/searchInput.scss";
 
 *,
 *::before,

@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react";
 import Navigation from "./Navigation";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   AiOutlineUnorderedList,
   AiOutlineSearch,
@@ -8,13 +8,16 @@ import {
 } from "react-icons/ai";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import logo from "../images/logo.png";
-import headerImage from "../images/header-image.png";
 import Catsino from "./Catsino";
+import SearchInput from "./SearchInput";
+import HeaderImage from "./HeaderImage";
 
 function Header() {
   const [showNav, setShowNav] = useState(false);
+  const [showSearch, setShowSearch] = useState(false)
   const [showCatsino, setShowCatsino] = useState(false)
   const navigate = useNavigate();
+  const location = useLocation()
 
   useEffect(() => {
     if (showNav || showCatsino) {
@@ -31,6 +34,10 @@ function Header() {
   const handleShowNav = () => {
     setShowNav(!showNav);
   };
+
+  const handleShowSearch = () => {
+    setShowSearch(!showSearch)
+  }
 
   const handleCatsinoClick = () => {
     setShowCatsino(!showCatsino)
@@ -55,13 +62,14 @@ function Header() {
           </div>
           <div className="header__main-icons-container header__container">
             <button className="header__icon header__icon--search">
-              <AiOutlineSearch />
+              <AiOutlineSearch onClick={handleShowSearch}/>
             </button>
             <button className="header__icon header__icon--user">
               <AiOutlineUser />
             </button>
           </div>
         </div>
+        {showSearch && <SearchInput />}
         <div className="header__bottom-nav-container">
           <div className="header__bottom-nav">
             <button className="header__bottom-button">More cats</button>
@@ -78,25 +86,7 @@ function Header() {
         </div>
       </header>
       <Navigation setShowNav={setShowNav} showNav={showNav} />
-      <div className="header__image-box">
-        <div className="header__image-text">
-          <p>
-            Cat<span className="header__image-text-orange">Hub</span> is an{" "}
-            <span className="header__image-text-orange">alternative</span> to
-            the{" "}
-            <span className="header__image-text-orange">
-              popular movie site
-            </span>
-            , is <span className="header__image-text-orange">dedicated</span> to{" "}
-            <span className="header__image-text-orange">cat lovers.</span>
-          </p>
-        </div>
-        <img
-          src={headerImage}
-          alt="white-brown cat"
-          className="header__image"
-        />
-      </div>
+        {location.pathname === "/" && <HeaderImage />}
       {showCatsino && <Catsino setShowCatsino={setShowCatsino}/>}
     </div>
   );

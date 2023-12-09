@@ -48,6 +48,10 @@
       color: $orange;
       scale: 1.2;
     }
+
+    &:focus {
+      color: $white;
+    }
   }
 
   &__favorite-text {

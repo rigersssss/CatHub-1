@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header/>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
     </Provider>

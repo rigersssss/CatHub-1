@@ -148,9 +148,14 @@ function NavigationOptions() {
           <AiFillRead />
           <p>Breed Info</p>
         </a>
-        <a href="https://www.webmd.com/pets/cats/default.htm" className="navigation__other-option">
+        <a
+          href="https://www.webmd.com/pets/cats/default.htm"
+          className="navigation__other-option"
+        >
           <AiFillHeart />
-          <p>Cat Health <FaExternalLinkAlt/></p>
+          <p>
+            Cat Health <FaExternalLinkAlt />
+          </p>
         </a>
         <a
           href="https://www.arealme.com/what-kind-of-cat-are-you/en/"

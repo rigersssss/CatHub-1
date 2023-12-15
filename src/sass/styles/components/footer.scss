@@ -12,13 +12,19 @@
     border-top: 1px solid $gray;
   }
 
+  a {
+    color: $orange;
+  }
+
   &__list-options {
     list-style: none;
+    user-select: none;
   }
 
   &__option {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     padding: 1rem;
     border-bottom: 1px solid $gray;
     cursor: pointer;
@@ -31,5 +37,203 @@
   &__option-button {
     font-size: 3rem;
     color: $gray;
+  }
+
+  &__option-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  &__option-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__privacy-policy,
+  &__newsletter,
+  &__FAQ,
+  &__Contact {
+    margin-top: 2rem;
+    color: $white;
+    font-size: 1.5rem;
+    cursor: default;
+  }
+
+  &__privacy-policy-icon,
+  &__newsletter-icon {
+    color: $orange;
+    font-size: 2.5rem;
+  }
+
+  &__newsletter-input {
+    margin-top: 1rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px $orange;
+    color: $orange;
+    outline: none;
+    width: 100%;
+    max-width: 400px;
+
+    &:focus {
+      color: $white;
+      border-bottom: solid 1px $white;
+    }
+
+    &::placeholder {
+      color: $orange;
+    }
+  }
+
+  &__newsletter-input-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  &__newsletter-confirm-icon {
+    font-size: 2rem;
+    color: $orange;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__FAQ-option {
+    list-style: none;
+    text-align: left;
+  }
+
+  &__FAQ-red-text {
+    color: #e26150;
+  }
+
+  &__FAQ-orange-text {
+    color: $orange;
+  }
+
+  &__FAQ-answer {
+    margin: 1rem 0rem 4rem 0rem;
+  }
+
+  &__FAQ-answer-icon {
+    transform: rotate(180deg);
+  }
+
+  &__privacy-policy-link {
+    color: $orange !important;
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+    cursor: default;
+  }
+
+  &__contact-box {
+    width: 100%;
+  }
+
+  &__contact-split-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+
+  &__contact-data {
+    padding: 0.25rem !important;
+    border: none !important;
+    color: $white;
+  }
+
+  &__contact-follow-text {
+    margin: 2rem 0 1rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $white;
+  }
+
+  &__contact-input-box {
+    display: flex;
+    align-items: center;
+    background-color: $orange;
+    margin: 1rem 0;
+  }
+
+  &__contact-icon {
+    display: block;
+    color: $black;
+    font-size: 2rem;
+  }
+
+  &__contact-input {
+    width: 100%;
+    input {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      transition: height 0.3s;
+    }
+    textarea {
+      width: 100%;
+      resize: vertical;
+      min-height: 2rem;
+    }
+  }
+
+  &__contact-follow-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  &__contact-follow-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+
+  &__contact-follow-icon {
+    font-size: 3rem;
+    cursor: pointer;
+
+    &--pinterest {
+      color: #df0022;
+    }
+
+    &--twitter {
+      color: #1c9cea;
+    }
+
+    &--facebook {
+      color: #4064ac;
+    }
+
+    &--youtube {
+      color: #f70000;
+    }
+
+    &--tumblr {
+      color: #2f4155;
+    }
+    
+    &--whatsapp {
+      color: #4dee6a;
+    }
+  }
+
+  &__contact-follow-link-box {
+    transition: transform 0.3s;
+    &:hover {
+     transform: scale(1.2); 
+    }
   }
 }

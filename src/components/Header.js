@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
@@ -14,10 +14,10 @@ import HeaderImage from "./HeaderImage";
 
 function Header() {
   const [showNav, setShowNav] = useState(false);
-  const [showSearch, setShowSearch] = useState(false)
-  const [showCatsino, setShowCatsino] = useState(false)
+  const [showSearch, setShowSearch] = useState(false);
+  const [showCatsino, setShowCatsino] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(() => {
     if (showNav || showCatsino) {
@@ -36,12 +36,12 @@ function Header() {
   };
 
   const handleShowSearch = () => {
-    setShowSearch(!showSearch)
-  }
+    setShowSearch(!showSearch);
+  };
 
   const handleCatsinoClick = () => {
-    setShowCatsino(!showCatsino)
-  }
+    setShowCatsino(!showCatsino);
+  };
 
   return (
     <div>
@@ -62,32 +62,45 @@ function Header() {
           </div>
           <div className="header__main-icons-container header__container">
             <button className="header__icon header__icon--search">
-              <AiOutlineSearch onClick={handleShowSearch}/>
+              <AiOutlineSearch onClick={handleShowSearch} />
             </button>
             <button className="header__icon header__icon--user">
               <AiOutlineUser />
             </button>
           </div>
         </div>
-        {showSearch && <SearchInput />}
+        {showSearch && <SearchInput/>}
         <div className="header__bottom-nav-container">
           <div className="header__bottom-nav">
             <button className="header__bottom-button">More cats</button>
           </div>
           <div className="header__bottom-nav">
-            <button className="header__bottom-button" onClick={handleCatsinoClick}>Catsino</button>
+            <button
+              className="header__bottom-button"
+              onClick={handleCatsinoClick}
+            >
+              Catsino
+            </button>
           </div>
           <div className="header__bottom-nav">
-            <button className="header__bottom-button"><a href="https://www.alleycat.org/">Help Cats 1 <FaExternalLinkAlt /></a></button>
+            <button className="header__bottom-button">
+              <a href="https://www.alleycat.org/">
+                Help Cats 1 <FaExternalLinkAlt />
+              </a>
+            </button>
           </div>
           <div className="header__bottom-nav">
-          <button className="header__bottom-button"><a href="https://icatcare.org/">Help Cats 2 <FaExternalLinkAlt /></a></button>
+            <button className="header__bottom-button">
+              <a href="https://icatcare.org/">
+                Help Cats 2 <FaExternalLinkAlt />
+              </a>
+            </button>
           </div>
         </div>
       </header>
       <Navigation setShowNav={setShowNav} showNav={showNav} />
-        {location.pathname === "/" && <HeaderImage />}
-      {showCatsino && <Catsino setShowCatsino={setShowCatsino}/>}
+      {location.pathname === "/" && <HeaderImage />}
+      {showCatsino && <Catsino setShowCatsino={setShowCatsino} />}
     </div>
   );
 }

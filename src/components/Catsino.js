@@ -21,7 +21,7 @@ function Catsino({ setShowCatsino }) {
             <h3 className="catsino__h3">Catsino:</h3>
             <p className="catsino__text">
               <span className="catsino__orange-text">Catsino</span> is currently
-              closed for maintenance. It will be available again on Meowcember
+              closed for maintenance. It will be available again on december
               32nd. We apologize for any inconvenience.
             </p>
             <GiPokerHand className="catsino__poker-icon" />

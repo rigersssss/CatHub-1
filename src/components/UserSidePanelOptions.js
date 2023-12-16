@@ -3,7 +3,6 @@ import {
   FaRegUserCircle,
   FaMarker,
   FaExternalLinkAlt,
-  FaMicrosoft
 } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
 function UserSidePanelOptions() {

@@ -8,6 +8,7 @@ function MobileNavigation({ setShowNav, showNav }) {
 
   const handleLogoClick = () => {
     navigate("/");
+    setShowNav(false);
   };
 
   const handleCloseClick = () => {

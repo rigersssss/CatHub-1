@@ -1,3 +1,4 @@
+import ScrollToTop from "./components/ScrollToTop"
 import MainPage from "./pages/MainPage";
 import UpButton from "./components/UpButton";
 import Header from "./components/Header"
@@ -12,6 +13,7 @@ function App() {
     <Provider store={store}>
       <UpButton />
       <Router>
+      <ScrollToTop />
       <Header/>
         <Routes>
           <Route path="/" element={<MainPage />} />

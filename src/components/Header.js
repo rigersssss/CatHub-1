@@ -11,21 +11,23 @@ import logo from "../images/logo.png";
 import Catsino from "./Catsino";
 import SearchInput from "./SearchInput";
 import HeaderImage from "./HeaderImage";
+import UserSidePanel from "./UserSidePanel";
 
 function Header() {
   const [showNav, setShowNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [showCatsino, setShowCatsino] = useState(false);
+  const [showUserSidePanel, setShowUserSidePanel] = useState(false)
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (showNav || showCatsino) {
+    if (showNav || showCatsino || showUserSidePanel) {
       document.body.classList.add("body-overflow-hidden");
     } else {
       document.body.classList.remove("body-overflow-hidden");
     }
-  }, [showNav, showCatsino]);
+  }, [showNav, showCatsino, showUserSidePanel]);
 
   const handleLogoClick = () => {
     navigate("/");
@@ -34,6 +36,10 @@ function Header() {
   const handleShowNav = () => {
     setShowNav(!showNav);
   };
+
+  const handleShowUserSidePanel = () => {
+    setShowUserSidePanel(!showUserSidePanel)
+  }
 
   const handleShowSearch = () => {
     setShowSearch(!showSearch);
@@ -65,7 +71,7 @@ function Header() {
               <AiOutlineSearch onClick={handleShowSearch} />
             </button>
             <button className="header__icon header__icon--user">
-              <AiOutlineUser />
+              <AiOutlineUser onClick={handleShowUserSidePanel}/>
             </button>
           </div>
         </div>
@@ -99,6 +105,7 @@ function Header() {
         </div>
       </header>
       <Navigation setShowNav={setShowNav} showNav={showNav} />
+      <UserSidePanel showUserSidePanel={showUserSidePanel} setShowUserSidePanel={setShowUserSidePanel}/>
       {location.pathname === "/" && <HeaderImage />}
       {showCatsino && <Catsino setShowCatsino={setShowCatsino} />}
     </div>

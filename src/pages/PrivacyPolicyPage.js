@@ -1,6 +1,7 @@
 import { MdOutlinePrivacyTip } from "react-icons/md";
 
 function PrivacyPolicyPage() {
+  
   return (
     <div className="privacy-policy">
       <div className="privacy-policy__go-to-main">

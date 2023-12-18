@@ -30,14 +30,15 @@ function MainPage() {
     if (status === "idle") {
       dispatch(fetchCatImagesAsync());
     }
-  }, [status, dispatch, userSelectedBreed]);
+    console.log(clickedButton);
+  }, [status, dispatch, userSelectedBreed, clickedButton]);
 
   return (
     <div className="main">
       <h1 className="main__h1">Trending cat images</h1>
       <Suggestions onButtonClicked={handleButtonClicked} />
       <h2 className="main__h2">
-        {clickedButton !== undefined ? clickedButton : "Random"}
+        {clickedButton === "" ? "Random" : clickedButton}
       </h2>
       <main>
         {imageUrls.map((url, index) => (

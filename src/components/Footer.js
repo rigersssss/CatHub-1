@@ -153,6 +153,7 @@ function Footer() {
           </li>
         </ul>
       </div>
+      <div className="footer__fix-for-mobile"></div>
     </footer>
   );
 }

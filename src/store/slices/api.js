@@ -3,29 +3,31 @@ import axios from "axios";
 const API_KEY =
   "live_65caNqcO4RblXstT22gc6z7a4CafgqzfFsiWN4pwm287UNdajrH4wAikTDjYwjdW";
 
-
-// Getting Images
-export const fetchCatImages = async (breedId = "") => {
+//  Getting Images
+export const fetchCatImages = async (breedName = "") => {
   try {
-    // If a breedId is provided and it's not "Random", include it in the parameters
-    const params =
-      breedId && breedId !== "Random"
-        ? { api_key: API_KEY, limit: 10, breed_id: breedId }
-        : { api_key: API_KEY, limit: 10 };
+    let apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10";
 
-    const response = await axios.get(
-      "https://api.thecatapi.com/v1/images/search",
-      {
-        params: params,
-      }
-    );
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching cat image:", error);
-    throw error;
+    // Check if breedName is provided and not equal to "Random"
+    if (breedName && breedName !== "Random") {
+      console.log("breed has been chosen");
+      apiUrl += `&breed_id=${breedName}`;
+    }
+
+    const response = await axios.get(apiUrl, {
+      params: { api_key: API_KEY },
+    });
+
+    // Get images urls
+    const catImageUrls = response.data.map((cat) => cat.url);
+    console.table(catImageUrls);
+
+    return catImageUrls;
+  } catch (err) {
+    console.error("Error fetching cat images:", err);
+    throw err;
   }
 };
-
 
 // Getting Breeds
 export const fetchCatBreeds = async () => {
@@ -43,4 +45,3 @@ export const fetchCatBreeds = async () => {
     throw error;
   }
 };
-

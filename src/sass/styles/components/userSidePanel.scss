@@ -8,13 +8,13 @@
   z-index: 10;
 
   &__active {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
   }
 
   &__menu {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     overflow-y: auto;
     width: 80%;
     background-color: $black;

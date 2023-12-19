@@ -24,14 +24,6 @@ function UserSidePanel({ showUserSidePanel, setShowUserSidePanel }) {
       <div className="user-side-panel__menu">
         <div className="user-side-panel__top">
           <div>
-            <button
-              className="user-side-panel__close"
-              onClick={handleCloseClick}
-            >
-              <AiOutlineClose />
-            </button>
-          </div>
-          <div>
             <button onClick={handleLogoClick}>
               <img
                 src={logo}
@@ -40,9 +32,17 @@ function UserSidePanel({ showUserSidePanel, setShowUserSidePanel }) {
               />
             </button>
           </div>
+          <div>
+            <button
+              className="user-side-panel__close"
+              onClick={handleCloseClick}
+            >
+              <AiOutlineClose />
+            </button>
+          </div>
         </div>
         <div className="user-side-panel__bottom">
-          <UserSidePanelOptions/>
+          <UserSidePanelOptions />
         </div>
       </div>
       <div

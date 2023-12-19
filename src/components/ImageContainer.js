@@ -4,7 +4,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { GrView } from "react-icons/gr";
 import StarRating from "react-rating-stars-component";
 
-function ImageContainer({ imageUrl }) {
+function ImageContainer({ image }) {
   const [showPopup, setShowPopup] = useState(false);
   const [randomViews, setRandomViews] = useState(0);
   const [favoriteClicked, setFavoriteClicked] = useState(false);
@@ -40,7 +40,7 @@ function ImageContainer({ imageUrl }) {
     <div className="image-container">
       <figure>
         <div>
-          <img src={imageUrl} alt="cat" className="image-container__image" />
+          <img src={image} alt="cat" className="image-container__image" />
         </div>
         <div className="image-container__info">
           <div className="image-container__info-wrapper">

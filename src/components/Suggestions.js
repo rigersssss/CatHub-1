@@ -2,6 +2,7 @@ import { useEffect, useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchCatBreedsAsync,
+  fetchCatImagesAsync,
   selectCatBreeds,
   setUserSelectedBreed,
 } from "../store/slices/catImageSlice";
@@ -38,6 +39,7 @@ function Suggestions({ onButtonClicked }) {
     dispatch(setUserSelectedBreed(breedObject));
     onButtonClicked(breedObject.name);
     setActiveButton(breedObject.name);
+    dispatch(fetchCatImagesAsync(breedObject.id))
   };
 
   return (

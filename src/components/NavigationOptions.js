@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   AiFillVideoCamera,
   AiOutlineSend,
@@ -23,7 +24,13 @@ function NavigationOptions() {
     showCommunities: false,
   });
 
-  const handleClick = (data) => {
+  const navigate = useNavigate()
+
+  const handleFullListClick = () => {
+    navigate("selection");
+  };
+
+  const handleSubListClick = (data) => {
     switch (data) {
       case "tags":
         setShowSubOptions({
@@ -72,7 +79,7 @@ function NavigationOptions() {
           <div
             className="navigation__option"
             onClick={() => {
-              handleClick("tags");
+              handleSubListClick("tags");
             }}
           >
             <div className="navigation__option-topic">
@@ -83,13 +90,13 @@ function NavigationOptions() {
               <AiOutlineCaretDown />
             </div>
           </div>
-          {showSubOptions.showTags && <TagsList />}
+          {showSubOptions.showTags && <TagsList handleFullListClick={handleFullListClick}/>}
         </li>
         <li>
           <div
             className="navigation__option"
             onClick={() => {
-              handleClick("breeds");
+              handleSubListClick("breeds");
             }}
           >
             <div className="navigation__option-topic">
@@ -100,7 +107,7 @@ function NavigationOptions() {
               <AiOutlineCaretDown />
             </div>
           </div>
-          {showSubOptions.showBreeds && <BreedsList />}
+          {showSubOptions.showBreeds && <BreedsList handleFullListClick={handleFullListClick}/>}
         </li>
         <li>
           <div className="navigation__option">
@@ -122,7 +129,7 @@ function NavigationOptions() {
           <div
             className="navigation__option"
             onClick={() => {
-              handleClick("communities");
+              handleSubListClick("communities");
             }}
           >
             <div className="navigation__option-topic">

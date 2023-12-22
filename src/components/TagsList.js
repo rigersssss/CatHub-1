@@ -1,6 +1,7 @@
 import { FaPaw } from "react-icons/fa";
 
-function TagsList() {
+function TagsList({handleFullListClick}) {
+
   const tags = [
     "cat",
     "cute",
@@ -13,6 +14,7 @@ function TagsList() {
     "feline",
     "whiskers",
   ];
+
   return (
     <ul className="navigation__sub-option-list">
       {tags.map((tag, index) => (
@@ -23,7 +25,7 @@ function TagsList() {
         </li>
       ))}
       <li className="navigation__sub-option-item">
-        <button className="navigation__sub-option-button">
+        <button className="navigation__sub-option-button" onClick={handleFullListClick}>
           All tags
         </button>
       </li>

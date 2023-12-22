@@ -6,9 +6,12 @@ import {
   selectCatBreeds,
   setUserSelectedBreed,
 } from "../store/slices/catImageSlice";
+import { useNavigate } from "react-router-dom";
 
 function Suggestions({ onButtonClicked }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const catBreeds = useSelector(selectCatBreeds);
   const [selectedBreeds, setSelectedBreeds] = useState([]);
   const [activeButton, setActiveButton] = useState("Random");
@@ -42,6 +45,10 @@ function Suggestions({ onButtonClicked }) {
     dispatch(fetchCatImagesAsync(breedObject.id))
   };
 
+  const handleMoreClick = () => {
+    navigate("selection")
+  }
+
   return (
     <div className="suggestions">
       <button
@@ -65,7 +72,7 @@ function Suggestions({ onButtonClicked }) {
           {breed.name}
         </button>
       ))}
-      <button className="suggestions__option">
+      <button className="suggestions__option" onClick={handleMoreClick}>
         More...
       </button>
     </div>

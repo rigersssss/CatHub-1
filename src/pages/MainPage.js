@@ -28,6 +28,7 @@ function MainPage() {
     <div className="main">
       <h1 className="main__h1">Trending cat images</h1>
       <Suggestions onButtonClicked={handleButtonClicked} />
+      <p className="main__limited-info">*Keep in mind that there may be a limited number of available photos for a given breed</p>
       <h2 className="main__h2">
         {clickedButton === "" ? "Random" : clickedButton}
       </h2>

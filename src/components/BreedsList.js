@@ -1,8 +1,12 @@
 import { FaPaw } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { fetchCatImagesAsync } from "../store/slices/catImageSlice";
-function BreedsList() {
+import { useNavigate } from "react-router-dom";
+
+function BreedsList({handleFullListClick}) {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const breeds = [
     { name: "Maine Coon", id: "mcoo" },
     { name: "Persian", id: "pers" },
@@ -16,7 +20,9 @@ function BreedsList() {
     { name: "Russian Blue", id: "rblu" },
   ];
 
+
   const handleClick = (id) => {
+    navigate("/");
     dispatch(fetchCatImagesAsync(id));
   };
 
@@ -30,7 +36,7 @@ function BreedsList() {
         </li>
       ))}
       <li className="navigation__sub-option-item">
-        <button className="navigation__sub-option-button">
+        <button className="navigation__sub-option-button" onClick={handleFullListClick}>
           All breeds
         </button>
       </li>

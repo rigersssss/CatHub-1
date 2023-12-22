@@ -59,8 +59,8 @@ const catImageSlice = createSlice({
   },
 });
 
-export const { setUserSelectedBreed } = catImageSlice.actions;
 export default catImageSlice.reducer;
+export const { setUserSelectedBreed } = catImageSlice.actions;
 export const selectCatBreeds = (state) => state.cat.catBreeds;
 export const selectUserSelectedBreed = (state) => state.cat.userSelectedBreed;
 export const selectCatImages = (state) => state.cat.catImages

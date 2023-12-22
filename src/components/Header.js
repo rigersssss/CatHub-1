@@ -33,6 +33,10 @@ function Header() {
     navigate("/");
   };
 
+  const handleMoreCatsClick = () => {
+    navigate("selection")
+  }
+
   const handleShowNav = () => {
     setShowNav(!showNav);
   };
@@ -78,7 +82,7 @@ function Header() {
         {showSearch && <SearchInput/>}
         <div className="header__bottom-nav-container">
           <div className="header__bottom-nav">
-            <button className="header__bottom-button">More cats</button>
+            <button className="header__bottom-button" onClick={handleMoreCatsClick}>More cats</button>
           </div>
           <div className="header__bottom-nav">
             <button

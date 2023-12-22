@@ -39,6 +39,7 @@ export const fetchCatBreeds = async () => {
       name: breed.name,
       id: breed.id,
     }));
+    console.log(catBreeds);
     return catBreeds;
   } catch (error) {
     console.error("Error fetching cat breeds:", error);

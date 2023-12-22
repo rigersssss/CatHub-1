@@ -24,7 +24,7 @@ function PrivacyPolicyPage() {
               1. Information We Collect:
             </h3>
             <p className="privacy-policy__text">
-              CatHub retrieves cat images from APIs such as Cataas and The Cat
+              CatHub retrieves cat images from APIs such as Pexels and The Cat
               API. We do not collect any personal information unless explicitly
               provided by you for account registration or other features.
             </p>
@@ -34,7 +34,7 @@ function PrivacyPolicyPage() {
               2. Information We Collect:
             </h3>
             <p className="privacy-policy__text">
-              We use the Cataas and The Cat API to fetch cat images based on
+              We use the Pexels and The Cat API to fetch cat images based on
               tags or breeds specified by users. The API requests may include
               device-related information, but we do not store or process this
               data.
@@ -63,7 +63,7 @@ function PrivacyPolicyPage() {
           <li className="privacy-policy__li">
             <h3 className="privacy-policy__point">5. Third-Party Services:</h3>
             <p className="privacy-policy__text">
-              CatHub utilizes third-party services, such as Cataas and The Cat
+              CatHub utilizes third-party services, such as Pexels and The Cat
               API, to provide cat images. These services have their privacy
               policies, and we recommend reviewing them to understand how your
               data is handled by them.

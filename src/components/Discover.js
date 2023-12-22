@@ -11,7 +11,7 @@ function Discover() {
             <div className="discover__tile-background discover__tile-background--gifs"></div>
             <div className="discover__tile-dark-filter"></div>
             <AiFillVideoCamera  className="discover__tile-topic"/>
-            <p className="discover__tile-topic">GIFs</p>
+            <p className="discover__tile-topic">Videos</p>
           </div>
           <div className="discover__tile discover__tile--breeds">
             <div className="discover__tile-background discover__tile-background--breeds"></div>

@@ -63,7 +63,7 @@ function NavigationOptions() {
           <div className="navigation__option">
             <div className="navigation__option-topic">
               <AiFillVideoCamera />
-              <p className="navigation__option-topic-name">GIFs</p>
+              <p className="navigation__option-topic-name">Videos</p>
             </div>
           </div>
         </li>

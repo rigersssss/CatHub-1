@@ -1,30 +1,41 @@
 import {
   AiOutlineSearch,
 } from "react-icons/ai";
+import { fetchCatImagesByTagsAsync } from "../store/slices/catImageSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 // Get all tag images
 const imagesContext = require.context("../images/cats/", false, /\.(jpg)$/);
 
 function ImagesSelectionPage() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleClick = (tag) => {
+    navigate("/")
+    dispatch(fetchCatImagesByTagsAsync(tag))
+  }
+
   const tagsArray = [
-    "cat",
-    "cute",
-    "funny",
-    "kitten",
     "adorable",
-    "fluffy",
-    "pets",
-    "feline",
-    "whiskers",
-    "christmascat",
-    "grumpy",
-    "sleepy",
-    "relaxed",
-    "curious",
     "black",
-    "white",
-    "silly",
+    "cat",
+    "christmascat",
+    "curious",
+    "cute",
+    "feline",
+    "fluffy",
+    "funny",
+    "grumpy",
     "happy",
+    "kitten",
+    "pets",
+    "relaxed",
+    "sleepy",
+    "silly",
+    "whiskers",
+    "white",
   ];
 
   // const breedsArray = [
@@ -104,6 +115,7 @@ function ImagesSelectionPage() {
       </h2>
       <p className="selection__h2-subtext">You can also use search button in the top right corner to find it faster <AiOutlineSearch className="selection__h2-subtext--icon"/></p>
       <h3 className="selection__h3">#Tags</h3>
+      <p className="selection__h3-subtext">Tags images are delivered by Pexels</p>
       <div className="selection__container">
         {tagsArray.map((tag) => (
           <button
@@ -112,6 +124,7 @@ function ImagesSelectionPage() {
             style={{
               backgroundImage: `url(${imagesContext(`./tag-${tag}.jpg`)})`,
             }}
+            onClick={() => {handleClick(tag)}}
           >
             <div className="selection__option-name-background">
               <p className="selection__option-name">#{tag}</p>

@@ -10,9 +10,10 @@ import { useNavigate } from "react-router-dom";
 
 function Suggestions({ onButtonClicked }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const catBreeds = useSelector(selectCatBreeds);
+
   const [selectedBreeds, setSelectedBreeds] = useState([]);
   const [activeButton, setActiveButton] = useState("Random");
 
@@ -38,16 +39,17 @@ function Suggestions({ onButtonClicked }) {
   }, [logRandomBreeds]);
 
   const handleButtonClick = (breed) => {
-    const breedObject = breed === "Random" ? { name: "Random", id: "Random" } : breed;
+    const breedObject =
+      breed === "Random" ? { name: "Random", id: "Random" } : breed;
     dispatch(setUserSelectedBreed(breedObject));
     onButtonClicked(breedObject.name);
     setActiveButton(breedObject.name);
-    dispatch(fetchCatImagesAsync(breedObject.id))
+    dispatch(fetchCatImagesAsync(breedObject.id));
   };
 
   const handleMoreClick = () => {
-    navigate("selection")
-  }
+    navigate("selection");
+  };
 
   return (
     <div className="suggestions">

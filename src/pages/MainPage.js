@@ -5,19 +5,22 @@ import ImageContainer from "../components/ImageContainer";
 import Suggestions from "../components/Suggestions";
 import Footer from "../components/Footer";
 import Discover from "../components/Discover";
-import { fetchCatImagesAsync, selectCatImages } from "../store/slices/catImageSlice";
+import { fetchCatImagesAsync, selectCatImages, setCatImagesDispatchedFirstTime, selectCatImagesDispatchedFirstTime } from "../store/slices/catImageSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function MainPage() {
   const [clickedButton, setClickedButton] = useState("");
-
+  
   const dispatch = useDispatch()
   const catImages = useSelector(selectCatImages)
-
+  const catImagesDispatchedFirstTime = useSelector(selectCatImagesDispatchedFirstTime);
   // Downloading images when component is rendered for the first time
   useEffect(() => {
-    dispatch(fetchCatImagesAsync())
-  }, [dispatch])
+    if (!catImagesDispatchedFirstTime) {
+      dispatch(fetchCatImagesAsync());
+      dispatch(setCatImagesDispatchedFirstTime(true));
+    }
+  }, [dispatch, catImagesDispatchedFirstTime]);
 
   // Changing displayed name of the breed depending on the clicked button
   const handleButtonClicked = (value) => {

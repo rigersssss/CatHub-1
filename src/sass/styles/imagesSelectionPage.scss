@@ -27,6 +27,12 @@
       font-size: 1.75rem;
     }
   }
+
+  &__h3-subtext {
+    padding: 0 1rem;
+    color: $orange;
+    font-size: 1.25rem;
+  }
   &__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 160px));

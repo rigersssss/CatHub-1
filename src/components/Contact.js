@@ -64,7 +64,7 @@ function Contact() {
         <div className="footer__contact-split-box">
           <p className="footer__contact-data">Telephone:</p>
           <p className="footer__contact-data">
-            <a href="tel:+48123456789">+48 123 456 789</a>
+            <a href="tel:+48123456789">+00 123 456 789</a>
           </p>
         </div>
         <p className="footer__contact-data">
@@ -74,34 +74,34 @@ function Contact() {
         <div className="footer__contact-follow-icons">
           <div className="footer__contact-follow-wrapper">
             <div className="footer__contact-follow-link-box">
-              <a href="https://google.com/">
+              <button>
                 <FaPinterestSquare className="footer__contact-follow-icon footer__contact-follow-icon--pinterest" />
-              </a>
+              </button>
             </div>
             <div className="footer__contact-follow-link-box">
-              <a href="https://google.com/">
+              <button>
                 <FaTwitterSquare className="footer__contact-follow-icon footer__contact-follow-icon--twitter" />
-              </a>
+              </button>
             </div>
             <div className="footer__contact-follow-link-box">
-              <a href="https://google.com/">
+              <button>
                 <FaFacebookSquare className="footer__contact-follow-icon footer__contact-follow-icon--facebook" />
-              </a>
+              </button>
             </div>
             <div className="footer__contact-follow-link-box">
-              <a href="https://google.com/">
+              <button>
                 <FaYoutubeSquare className="footer__contact-follow-icon footer__contact-follow-icon--youtube" />
-              </a>
+              </button>
             </div>
             <div className="footer__contact-follow-link-box">
-              <a href="https://google.com/">
+              <button>
                 <FaTumblrSquare className="footer__contact-follow-icon footer__contact-follow-icon--tumblr" />
-              </a>
+              </button>
             </div>
             <div className="footer__contact-follow-link-box">
-              <a href="https://google.com/">
+              <button>
                 <FaWhatsappSquare className="footer__contact-follow-icon footer__contact-follow-icon--whatsapp" />
-              </a>
+              </button>
             </div>
           </div>
         </div>

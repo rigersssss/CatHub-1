@@ -7,7 +7,7 @@ const PEXELS_API_KEY =
   "vP6R4K2xXnxI81F2c2k4YqDQMdFtnduri1xcYesv6dLHzxgq1ususS9X";
 
 //  Getting Images with or without given breed (The Cat API)
-export const fetchCatImages = async (breedName = "") => {
+export const fetchCatImages = async (breedName = "jbob") => {
   try {
     let apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10";
 

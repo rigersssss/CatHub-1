@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Navigation from "./Navigation";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   AiOutlineUnorderedList,
@@ -12,14 +13,16 @@ import Catsino from "./Catsino";
 import SearchInput from "./SearchInput";
 import HeaderImage from "./HeaderImage";
 import UserSidePanel from "./UserSidePanel";
+import { selectShowNav, setShowNav, selectShowUserSidePanel, setShowUserSidePanel } from "../store/slices/uiSlice";
 
 function Header() {
-  const [showNav, setShowNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [showCatsino, setShowCatsino] = useState(false);
-  const [showUserSidePanel, setShowUserSidePanel] = useState(false)
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch()
+  const showNav = useSelector(selectShowNav)
+  const showUserSidePanel = useSelector(selectShowUserSidePanel)
 
   useEffect(() => {
     if (showNav || showCatsino || showUserSidePanel) {
@@ -38,11 +41,11 @@ function Header() {
   }
 
   const handleShowNav = () => {
-    setShowNav(!showNav);
+    dispatch(setShowNav(!showNav));
   };
 
   const handleShowUserSidePanel = () => {
-    setShowUserSidePanel(!showUserSidePanel)
+    dispatch(setShowUserSidePanel(!showUserSidePanel))
   }
 
   const handleShowSearch = () => {
@@ -108,8 +111,8 @@ function Header() {
           </div>
         </div>
       </header>
-      <Navigation setShowNav={setShowNav} showNav={showNav} />
-      <UserSidePanel showUserSidePanel={showUserSidePanel} setShowUserSidePanel={setShowUserSidePanel}/>
+      <Navigation />
+      <UserSidePanel />
       {location.pathname === "/" && <HeaderImage />}
       {showCatsino && <Catsino setShowCatsino={setShowCatsino} />}
     </div>

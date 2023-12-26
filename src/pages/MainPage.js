@@ -1,39 +1,35 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { AiFillGithub } from "react-icons/ai";
-import OriginalWebsite from "../components/OriginalWebsite";
 import ImageContainer from "../components/ImageContainer";
 import Suggestions from "../components/Suggestions";
 import Footer from "../components/Footer";
 import Discover from "../components/Discover";
 import { fetchCatImagesAsync, selectCatImages, setCatImagesDispatchedFirstTime, selectCatImagesDispatchedFirstTime } from "../store/slices/catImageSlice";
+import { selectDisplayedBreedName } from "../store/slices/uiSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-function MainPage() {
-  const [clickedButton, setClickedButton] = useState("");
-  
+function MainPage() { 
   const dispatch = useDispatch()
   const catImages = useSelector(selectCatImages)
   const catImagesDispatchedFirstTime = useSelector(selectCatImagesDispatchedFirstTime);
+  const displayedBreedName = useSelector(selectDisplayedBreedName)
+  
   // Downloading images when component is rendered for the first time
   useEffect(() => {
     if (!catImagesDispatchedFirstTime) {
       dispatch(fetchCatImagesAsync());
       dispatch(setCatImagesDispatchedFirstTime(true));
+      console.log(displayedBreedName);
     }
-  }, [dispatch, catImagesDispatchedFirstTime]);
-
-  // Changing displayed name of the breed depending on the clicked button
-  const handleButtonClicked = (value) => {
-    setClickedButton(value);
-  };
+  }, [dispatch, catImagesDispatchedFirstTime, displayedBreedName]);
 
   return (
     <div className="main">
       <h1 className="main__h1">Trending cat images</h1>
-      <Suggestions onButtonClicked={handleButtonClicked} />
+      <Suggestions />
       <p className="main__limited-info">*Keep in mind that there may be a limited number of available photos for a given breed</p>
       <h2 className="main__h2">
-        {clickedButton === "" ? "Random" : clickedButton}
+        {displayedBreedName === "" ? "Random" : displayedBreedName}
       </h2>
       <main>
       {catImages.map((image, index) => (
@@ -49,7 +45,6 @@ function MainPage() {
 
       <Discover />
       <Footer />
-      <OriginalWebsite />
     </div>
   );
 }

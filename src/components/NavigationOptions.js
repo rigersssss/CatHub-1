@@ -16,6 +16,9 @@ import { FaCat, FaFish, FaExternalLinkAlt } from "react-icons/fa";
 import TagsList from "./TagsList";
 import BreedsList from "./BreedsList";
 import CommunitiesList from "./CommunitiesList";
+import { useDispatch } from "react-redux";
+import { setShowNav, setActiveSuggestionButton } from "../store/slices/uiSlice";
+import { fetchCatImagesAsync } from "../store/slices/catImageSlice";
 
 function NavigationOptions() {
   const [showSubOptions, setShowSubOptions] = useState({
@@ -24,11 +27,19 @@ function NavigationOptions() {
     showCommunities: false,
   });
 
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleFullListClick = () => {
     navigate("selection");
+    dispatch(setShowNav(false))
   };
+
+  const handleRandomClick = () => {
+    dispatch(setShowNav(false))
+    dispatch(fetchCatImagesAsync())
+    dispatch(setActiveSuggestionButton("Random"))
+  }
 
   const handleSubListClick = (data) => {
     switch (data) {
@@ -110,7 +121,7 @@ function NavigationOptions() {
           {showSubOptions.showBreeds && <BreedsList handleFullListClick={handleFullListClick}/>}
         </li>
         <li>
-          <div className="navigation__option">
+          <div className="navigation__option" onClick={handleRandomClick}>
             <div className="navigation__option-topic">
               <AiFillCalculator />
               <p className="navigation__option-topic-name">Random</p>

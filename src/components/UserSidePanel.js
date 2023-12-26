@@ -2,17 +2,21 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
 import UserSidePanelOptions from "./UserSidePanelOptions";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowUserSidePanel, selectShowUserSidePanel } from "../store/slices/uiSlice";
 
-function UserSidePanel({ showUserSidePanel, setShowUserSidePanel }) {
+function UserSidePanel() {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const showUserSidePanel = useSelector(selectShowUserSidePanel)
 
   const handleLogoClick = () => {
     navigate("/");
-    setShowUserSidePanel(false);
+    dispatch(setShowUserSidePanel(false));
   };
 
   const handleCloseClick = () => {
-    setShowUserSidePanel(false);
+    dispatch(setShowUserSidePanel(false));
   };
 
   return (

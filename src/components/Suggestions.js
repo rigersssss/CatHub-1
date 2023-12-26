@@ -7,15 +7,15 @@ import {
   setUserSelectedBreed,
 } from "../store/slices/catImageSlice";
 import { useNavigate } from "react-router-dom";
+import { setDisplayedBreedName, setActiveSuggestionButton, selectActiveSuggestionButton } from "../store/slices/uiSlice";
 
-function Suggestions({ onButtonClicked }) {
+function Suggestions() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const catBreeds = useSelector(selectCatBreeds);
-
+  const activeSuggestionButton = useSelector(selectActiveSuggestionButton);
   const [selectedBreeds, setSelectedBreeds] = useState([]);
-  const [activeButton, setActiveButton] = useState("Random");
 
   useEffect(() => {
     dispatch(fetchCatBreedsAsync());
@@ -41,10 +41,13 @@ function Suggestions({ onButtonClicked }) {
   const handleButtonClick = (breed) => {
     const breedObject =
       breed === "Random" ? { name: "Random", id: "Random" } : breed;
+
     dispatch(setUserSelectedBreed(breedObject));
-    onButtonClicked(breedObject.name);
-    setActiveButton(breedObject.name);
+    dispatch(setActiveSuggestionButton(breedObject.name)); // Zmiana setActiveButton na setActiveSuggestionButton
     dispatch(fetchCatImagesAsync(breedObject.id));
+    dispatch(setDisplayedBreedName(breedObject.name));
+
+    console.log("Displayed Breed Name after update:", breedObject.name);
   };
 
   const handleMoreClick = () => {
@@ -55,7 +58,7 @@ function Suggestions({ onButtonClicked }) {
     <div className="suggestions">
       <button
         className={`suggestions__option ${
-          activeButton === "Random" ? "active-suggestions-button" : ""
+          activeSuggestionButton === "Random" ? "active-suggestions-button" : ""
         }`}
         onClick={() => handleButtonClick("Random")}
       >
@@ -67,7 +70,7 @@ function Suggestions({ onButtonClicked }) {
         <button
           key={index}
           className={`suggestions__option ${
-            activeButton === breed.name ? "active-suggestions-button" : ""
+            activeSuggestionButton === breed.name ? "active-suggestions-button" : ""
           }`}
           onClick={() => handleButtonClick(breed)}
         >

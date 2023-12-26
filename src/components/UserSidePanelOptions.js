@@ -1,27 +1,13 @@
-import {
-  FaCloudUploadAlt,
-  FaRegUserCircle,
-  FaMarker,
-  FaExternalLinkAlt,
-} from "react-icons/fa";
+import { FaPaw, FaRegUserCircle, FaMarker } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
 function UserSidePanelOptions() {
-
   return (
     <div className="user-side-panel__options">
       <div className="user-side-panel__general">
-        <div className="user-side-panel__option">
-          <a
-            href="https://cataas.com/upload"
-            className="user-side-panel__option-link"
-          >
-            <div className="user-side-panel__option-icon">
-              <FaCloudUploadAlt />
-            </div>
-            <div className="user-side-panel__option-text">
-              Upload <FaExternalLinkAlt />
-            </div>
-          </a>
+        <div className="user-side-panel__option user-side-panel__option--paw">
+          <div className="user-side-panel__option-icon user-side-panel__option-icon--paw">
+            <FaPaw />
+          </div>
         </div>
         <div className="user-side-panel__option">
           <div className="user-side-panel__option-icon">

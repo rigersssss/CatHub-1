@@ -2,17 +2,21 @@ import { AiOutlineClose } from "react-icons/ai";
 import logo from "../images/logo.png";
 import NavigationOptions from "./NavigationOptions";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowNav, selectShowNav } from "../store/slices/uiSlice";
 
-function MobileNavigation({ setShowNav, showNav }) {
+function MobileNavigation() {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const showNav = useSelector(selectShowNav)
 
   const handleLogoClick = () => {
     navigate("/");
-    setShowNav(false);
+    dispatch(setShowNav(false));
   };
 
   const handleCloseClick = () => {
-    setShowNav(false);
+    dispatch(setShowNav(false));
   };
 
   return (

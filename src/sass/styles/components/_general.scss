@@ -11,8 +11,13 @@ button {
   border: none;
   font-size: inherit;
   transition: color .3s;
+  cursor: pointer;
 }
 
 * {
   scrollbar-color: $orange $black;
+}
+
+.loading-icon {
+  margin: 0 auto;
 }

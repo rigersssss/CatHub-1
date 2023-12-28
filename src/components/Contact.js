@@ -12,7 +12,9 @@ import {
   FaTumblrSquare,
   FaWhatsappSquare,
 } from "react-icons/fa";
+
 function Contact() {
+
   return (
     <div className="footer__contact">
       {/* Inputs for contact */}
@@ -70,6 +72,8 @@ function Contact() {
         <p className="footer__contact-data">
           E-mail: <a href="mailto:kontakt@example.com">cathub@contact.com</a>
         </p>
+
+        {/* Social media */}
         <div className="footer__contact-follow-text">FOLLOW US</div>
         <div className="footer__contact-follow-icons">
           <div className="footer__contact-follow-wrapper">

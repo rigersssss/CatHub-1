@@ -30,7 +30,6 @@ function Suggestions() {
       // Create a new array with a randomly chosen breeds
       const newSelectedBreeds = shuffledBreeds.slice(0, 5);
       setSelectedBreeds(newSelectedBreeds);
-      console.log("Selected Cat Breeds:", newSelectedBreeds);
     }
   }, [catBreeds]);
 
@@ -42,12 +41,11 @@ function Suggestions() {
     const breedObject =
       breed === "Random" ? { name: "Random", id: "Random" } : breed;
 
-    dispatch(setUserSelectedBreed(breedObject));
-    dispatch(setActiveSuggestionButton(breedObject.name)); // Zmiana setActiveButton na setActiveSuggestionButton
-    dispatch(fetchCatImagesAsync(breedObject.id));
-    dispatch(setDisplayedBreedName(breedObject.name));
-
-    console.log("Displayed Breed Name after update:", breedObject.name);
+    dispatch(setUserSelectedBreed(breedObject)); // object with breed name and id
+    dispatch(setActiveSuggestionButton(breedObject.name)); // add class to button so it looks like it was clicked
+    dispatch(fetchCatImagesAsync(breedObject.id)); // fetching images with id of the chosen breed
+    dispatch(setDisplayedBreedName(breedObject.name)); // setting breed name as text in main__h2
+    navigate("/");
   };
 
   const handleMoreClick = () => {

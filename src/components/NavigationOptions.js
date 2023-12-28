@@ -41,6 +41,7 @@ function NavigationOptions() {
     dispatch(setActiveSuggestionButton("Random"))
   }
 
+
   const handleSubListClick = (data) => {
     switch (data) {
       case "tags":

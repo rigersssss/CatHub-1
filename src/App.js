@@ -18,6 +18,7 @@ function App() {
       <Header/>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/page/*" element={<MainPage />} />
           <Route path="privacypolicy" element={<PrivacyPolicyPage />} />
           <Route path="selection" element={<ImagesSelectionPage />} />
           <Route path="*" element={<NotFoundPage />} />

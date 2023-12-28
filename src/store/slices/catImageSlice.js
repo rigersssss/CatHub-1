@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchCatBreeds, fetchCatImages, fetchCatImagesByTags } from "./api";
 
+// Get cat images
 export const fetchCatImagesAsync = createAsyncThunk(
   "cat/fetchCatImages",
   async (id) => {
@@ -9,6 +10,7 @@ export const fetchCatImagesAsync = createAsyncThunk(
   }
 );
 
+// Get cat breeds
 export const fetchCatBreedsAsync = createAsyncThunk(
   "cat/fetchCatBreeds",
   async () => {
@@ -17,18 +19,19 @@ export const fetchCatBreedsAsync = createAsyncThunk(
   }
 );
 
+// Get cat tags
 export const fetchCatImagesByTagsAsync = createAsyncThunk(
   "cat/fetchCatImagesByTags",
   async (tag) => {
-    const tags = await fetchCatImagesByTags(tag)
-    return tags
+    const tags = await fetchCatImagesByTags(tag);
+    return tags;
   }
-)
+);
 
 const catImageSlice = createSlice({
   name: "cat",
   initialState: {
-    userSelectedBreed: { name: "", id: "" },
+    userSelectedBreed: { name: "Random", id: "Random" },
     catImages: [],
     catBreeds: [],
     catImagesDispatchedFirstTime: false,
@@ -39,7 +42,6 @@ const catImageSlice = createSlice({
     },
     setUserSelectedBreed: (state, action) => {
       state.userSelectedBreed = action.payload;
-      console.log(state.userSelectedBreed);
     },
   },
   extraReducers: (builder) => {
@@ -79,13 +81,15 @@ const catImageSlice = createSlice({
       .addCase(fetchCatImagesByTagsAsync.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
-      })
+      });
   },
 });
 
 export default catImageSlice.reducer;
-export const { setUserSelectedBreed, setCatImagesDispatchedFirstTime } = catImageSlice.actions;
+export const { setUserSelectedBreed, setCatImagesDispatchedFirstTime } =
+  catImageSlice.actions;
 export const selectCatBreeds = (state) => state.cat.catBreeds;
 export const selectUserSelectedBreed = (state) => state.cat.userSelectedBreed;
-export const selectCatImages = (state) => state.cat.catImages
-export const selectCatImagesDispatchedFirstTime = (state) => state.cat.catImagesDispatchedFirstTime
+export const selectCatImages = (state) => state.cat.catImages;
+export const selectCatImagesDispatchedFirstTime = (state) =>
+  state.cat.catImagesDispatchedFirstTime;

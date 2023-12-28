@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCatImagesAsync, selectUserSelectedBreed } from "../store/slices/catImageSlice";
 
 function Pagination() {
   const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
   const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const selectedBreed = useSelector(selectUserSelectedBreed)
 
   const handleButtonClick = (index) => {
     if (index === 0) {
@@ -17,6 +21,7 @@ function Pagination() {
     }
 
     navigate(`/page/${numbers[index]}`);
+    dispatch(fetchCatImagesAsync(selectedBreed.id))
   };
 
   const handlePrevNextClick = (operation) => {

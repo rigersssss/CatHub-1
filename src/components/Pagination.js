@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
+import { setPaginatedImagesPage, selectPaginatedImagesPage, selectCatImages, selectUserSelectedBreed, fetchCatImagesAsync } from "../store/slices/catImageSlice";
 
 function Pagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -7,10 +9,30 @@ function Pagination() {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch()
+  const paginatedImagesPage = useSelector(selectPaginatedImagesPage)
+  const catImages = useSelector(selectCatImages)
+  const userSelectedBreed = useSelector(selectUserSelectedBreed)
 
   const handleWindowResize = useCallback(() => {
     setPageButtons(getPageButtons());
   }, []);
+
+  useEffect(() => {
+    const match = location.pathname.match(/\/page\/(\d+)/);
+    const page = match ? parseInt(match[1]) : 1;
+
+    // Check if number of page already exists in array
+    const existingPage = paginatedImagesPage.find((obj) => obj.page === page && obj.breedId === userSelectedBreed.id);
+
+    // If it doesn't exist, clear the array and add a new entry
+    if (!existingPage) {
+      const updatedPages = [{ page, breedId: userSelectedBreed.id, images: catImages }];
+      dispatch(setPaginatedImagesPage(updatedPages));
+    }
+
+    console.log(paginatedImagesPage);
+  }, [dispatch, location.pathname, paginatedImagesPage, catImages, userSelectedBreed]);
 
   useEffect(() => {
     // Getting number of page from URL
@@ -68,6 +90,7 @@ function Pagination() {
     setTimeout(() => {
       setCurrentPage(pageNumber);
       navigate(`/page/${pageNumber}`);
+      dispatch(fetchCatImagesAsync(userSelectedBreed.id))
     }, 600);
   };
 

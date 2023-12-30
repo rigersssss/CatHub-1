@@ -35,7 +35,6 @@ const catImageSlice = createSlice({
     catImages: [],
     catBreeds: [],
     catImagesDispatchedFirstTime: false,
-    paginatedImagesPage: [],
   },
   reducers: {
     setCatImagesDispatchedFirstTime: (state, action) => {
@@ -43,9 +42,6 @@ const catImageSlice = createSlice({
     },
     setUserSelectedBreed: (state, action) => {
       state.userSelectedBreed = action.payload;
-    },
-    setPaginatedImagesPage: (state, action) => {
-      state.paginatedImagesPage = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -94,10 +90,8 @@ export default catImageSlice.reducer;
 export const {
   setUserSelectedBreed,
   setCatImagesDispatchedFirstTime,
-  setPaginatedImagesPage,
 } = catImageSlice.actions;
 export const selectCatBreeds = (state) => state.cat.catBreeds;
 export const selectUserSelectedBreed = (state) => state.cat.userSelectedBreed;
 export const selectCatImages = (state) => state.cat.catImages;
 export const selectCatImagesDispatchedFirstTime = (state) => state.cat.catImagesDispatchedFirstTime;
-export const selectPaginatedImagesPage = (state) => state.cat.paginatedImagesPage

@@ -1,11 +1,16 @@
 import { MdOutlinePrivacyTip } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 function PrivacyPolicyPage() {
-  
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate("/")
+  }
   return (
     <div className="privacy-policy">
-      <div className="privacy-policy__go-to-main">
-        <a href="/">Go back to the main page</a>
+      <div className="privacy-policy__go-to-main-container" onClick={handleClick}>
+        <div className="privacy-policy__go-to-main-text">Go back to the main page</div>
       </div>
       <h1 className="privacy-policy__h1">
         <MdOutlinePrivacyTip className="privacy-policy__h1-icon" /> Privacy

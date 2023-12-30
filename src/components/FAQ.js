@@ -61,6 +61,17 @@ function FAQ() {
             <a href="https://www.pexels.com/license/">Pexels</a>.
           </div>
         </li>
+        <li className="footer__FAQ-option">
+          <div className="footer__FAQ-question">
+            Q5: Can I fetch images few times per second?{" "}
+          </div>
+          <div className="footer__FAQ-answer">
+            <span className="footer__FAQ-orange-text">
+              <FaReply className="footer__FAQ-answer-icon" /> A:
+            </span>{" "}
+            Please, don't.{" "}
+          </div>
+        </li>
       </ul>
     </div>
   );

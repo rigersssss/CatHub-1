@@ -3,7 +3,9 @@ import { FaCat } from "react-icons/fa";
 import {
   fetchCatImagesByTagsAsync,
   fetchCatImagesAsync,
+  setUserSelectedBreed,
 } from "../store/slices/catImageSlice";
+import { setDisplayedBreedName, setActiveSuggestionButton } from "../store/slices/uiSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import scrollToImages from "../helpers/scroll"
@@ -17,13 +19,18 @@ function ImagesSelectionPage() {
 
   const handleTagClick = (tag) => {
     navigate("/");
+    dispatch(setDisplayedBreedName(tag))
+    dispatch(setUserSelectedBreed(tag))
     dispatch(fetchCatImagesByTagsAsync(tag));
     scrollToImages()
   };
 
   const handleBreedClick = (breed) => {
     navigate("/");
-    dispatch(fetchCatImagesAsync(breed));
+    dispatch(setDisplayedBreedName(breed.name))
+    dispatch(setUserSelectedBreed(breed))
+    dispatch(fetchCatImagesAsync(breed.id));
+    dispatch(setActiveSuggestionButton(breed.name))
     scrollToImages()
   };
 
@@ -170,7 +177,7 @@ function ImagesSelectionPage() {
                 backgroundImage: `url(${imagesContext(`./breed-${modifyBreedName(breed.name)}.jpg`)})`,
               }}
               onClick={() => {
-                handleBreedClick(breed.id);
+                handleBreedClick(breed);
               }}
             >
               <div className="selection__option-name-background">

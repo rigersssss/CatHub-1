@@ -1,6 +1,6 @@
 import { FaPaw } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { fetchCatImagesAsync } from "../store/slices/catImageSlice";
+import { fetchCatImagesAsync, setUserSelectedBreed } from "../store/slices/catImageSlice";
 import { setShowNav } from "../store/slices/uiSlice";
 import { useNavigate } from "react-router-dom";
 import { setDisplayedBreedName, setActiveSuggestionButton } from "../store/slices/uiSlice";
@@ -25,6 +25,7 @@ function BreedsList({handleFullListClick}) {
 
   const handleClick = (breed) => {
     navigate("/");
+    dispatch(setUserSelectedBreed(breed))
     dispatch(fetchCatImagesAsync(breed.id));
     dispatch(setDisplayedBreedName(breed.name))
     dispatch(setShowNav(false))

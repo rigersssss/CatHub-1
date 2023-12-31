@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  AiFillVideoCamera,
   AiOutlineSend,
   AiOutlineAppstore,
   AiOutlineCaretDown,
   AiFillCalculator,
-  AiFillCamera,
   AiOutlineUsergroupAdd,
   AiFillRead,
   AiFillGithub,
@@ -19,6 +17,7 @@ import CommunitiesList from "./CommunitiesList";
 import { useDispatch } from "react-redux";
 import { setShowNav, setActiveSuggestionButton } from "../store/slices/uiSlice";
 import { fetchCatImagesAsync } from "../store/slices/catImageSlice";
+import scrollToImages from "../helpers/scroll";
 
 function NavigationOptions() {
   const [showSubOptions, setShowSubOptions] = useState({
@@ -39,6 +38,7 @@ function NavigationOptions() {
     dispatch(setShowNav(false))
     dispatch(fetchCatImagesAsync())
     dispatch(setActiveSuggestionButton("Random"))
+    scrollToImages()
   }
 
 
@@ -71,14 +71,6 @@ function NavigationOptions() {
   return (
     <div>
       <ul className="navigation__options-list">
-        <li>
-          <div className="navigation__option">
-            <div className="navigation__option-topic">
-              <AiFillVideoCamera />
-              <p className="navigation__option-topic-name">Videos</p>
-            </div>
-          </div>
-        </li>
         <li>
           <div className="navigation__option">
             <div className="navigation__option-topic">
@@ -132,8 +124,8 @@ function NavigationOptions() {
         <li>
           <div className="navigation__option">
             <div className="navigation__option-topic">
-              <AiFillCamera />
-              <p className="navigation__option-topic-name">Photos</p>
+              <AiFillRead />
+              <p className="navigation__option-topic-name">Breeds Info</p>
             </div>
           </div>
         </li>
@@ -165,7 +157,7 @@ function NavigationOptions() {
         </a>
         <a href="google.com" className="navigation__other-option">
           <AiFillRead />
-          <p>Breed Info</p>
+          <p>Breeds Info</p>
         </a>
         <a
           href="https://www.webmd.com/pets/cats/default.htm"

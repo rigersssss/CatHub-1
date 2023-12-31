@@ -9,6 +9,7 @@ import { store } from "./store/store";
 import NotFoundPage from "./pages/NotFoundPage";
 import ImagesSelectionPage from "./pages/ImagesSelectionPage";
 
+
 function App() {
   return (
     <Provider store={store}>

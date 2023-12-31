@@ -6,7 +6,7 @@ const TCA_API_KEY =
 const PEXELS_API_KEY =
   "vP6R4K2xXnxI81F2c2k4YqDQMdFtnduri1xcYesv6dLHzxgq1ususS9X";
 
-//  Getting Images with or without given breed (The Cat API)
+// Getting Images with or without given breed (The Cat API)
 export const fetchCatImages = async (breedName = "") => {
   try {
     let apiUrl = "https://api.thecatapi.com/v1/images/search?limit=10";
@@ -21,10 +21,10 @@ export const fetchCatImages = async (breedName = "") => {
       params: { api_key: TCA_API_KEY },
     });
 
-    // Get images urls
-    const catImageUrls = response.data.map((cat) => cat.url);
+    // Shuffle the cat images urls randomly to prevent displaying images in the same order if there are less than 10 images
+    const shuffledImageUrls = response.data.map((cat) => cat.url).sort(() => Math.random() - 0.5);
 
-    return catImageUrls;
+    return shuffledImageUrls;
   } catch (err) {
     console.error("Error fetching cat images:", err);
     throw err;

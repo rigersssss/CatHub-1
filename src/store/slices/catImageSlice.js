@@ -31,7 +31,7 @@ export const fetchCatImagesByTagsAsync = createAsyncThunk(
 const catImageSlice = createSlice({
   name: "cat",
   initialState: {
-    userSelectedBreed: { name: "Random", id: "Random" },
+    userSelectedBreed: { name: "", id: "" },
     catImages: [],
     catBreeds: [],
     catImagesDispatchedFirstTime: false,
@@ -51,8 +51,8 @@ const catImageSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchCatImagesAsync.fulfilled, (state, action) => {
-        state.status = "succeeded";
         state.catImages = action.payload;
+        state.status = "succeeded";
       })
       .addCase(fetchCatImagesAsync.rejected, (state, action) => {
         state.status = "failed";
@@ -73,7 +73,6 @@ const catImageSlice = createSlice({
       // Tags request
       .addCase(fetchCatImagesByTagsAsync.pending, (state) => {
         state.status = "loading";
-        
       })
       .addCase(fetchCatImagesByTagsAsync.fulfilled, (state, action) => {
         state.status = "succeeded";
@@ -87,11 +86,10 @@ const catImageSlice = createSlice({
 });
 
 export default catImageSlice.reducer;
-export const {
-  setUserSelectedBreed,
-  setCatImagesDispatchedFirstTime,
-} = catImageSlice.actions;
+export const { setUserSelectedBreed, setCatImagesDispatchedFirstTime } =
+  catImageSlice.actions;
 export const selectCatBreeds = (state) => state.cat.catBreeds;
 export const selectUserSelectedBreed = (state) => state.cat.userSelectedBreed;
 export const selectCatImages = (state) => state.cat.catImages;
-export const selectCatImagesDispatchedFirstTime = (state) => state.cat.catImagesDispatchedFirstTime;
+export const selectCatImagesDispatchedFirstTime = (state) =>
+  state.cat.catImagesDispatchedFirstTime;

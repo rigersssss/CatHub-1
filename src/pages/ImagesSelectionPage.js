@@ -6,6 +6,7 @@ import {
 } from "../store/slices/catImageSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import scrollToImages from "../helpers/scroll"
 
 // Get all tag images
 const imagesContext = require.context("../images/cats/", false, /\.(jpg)$/);
@@ -17,11 +18,13 @@ function ImagesSelectionPage() {
   const handleTagClick = (tag) => {
     navigate("/");
     dispatch(fetchCatImagesByTagsAsync(tag));
+    scrollToImages()
   };
 
   const handleBreedClick = (breed) => {
     navigate("/");
     dispatch(fetchCatImagesAsync(breed));
+    scrollToImages()
   };
 
   // Ignore s p a c e s, CAPITAL LETTERS and-dashes
@@ -128,7 +131,7 @@ function ImagesSelectionPage() {
         <AiOutlineSearch className="selection__h2-subtext--icon" />
       </p>
       <section>
-        <h3 className="selection__h3">#Tags</h3>
+        <h3 className="selection__h3 selection__h3--tags">#Tags</h3>
         <p className="selection__h3-subtext">
           Tags images are delivered by Pexels
         </p>
@@ -152,7 +155,7 @@ function ImagesSelectionPage() {
         </div>
       </section>
       <section>
-        <h3 className="selection__h3">
+        <h3 className="selection__h3 selection__h3--breeds">
           <FaCat /> Breeds
         </h3>
         <p className="selection__h3-subtext">

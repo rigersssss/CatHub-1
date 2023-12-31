@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { selectUserSelectedBreed, fetchCatImagesAsync } from "../store/slices/catImageSlice";
+import scrollToImages from "../helpers/scroll"
 
 function Pagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,19 +18,16 @@ function Pagination() {
   }, []);
 
   useEffect(() => {
-    // Getting number of page from URL
     const getPageNumberFromPath = () => {
       const match = location.pathname.match(/\/page\/(\d+)/);
       return match ? parseInt(match[1]) : 1;
     };
 
-    // Setting current page as the one from the URL
     setCurrentPage(getPageNumberFromPath());
 
     // Update the number of page buttons when the component mounts
     setPageButtons(getPageButtons());
-
-    // Add event listener for window resize
+    
     window.addEventListener("resize", handleWindowResize);
 
     // Cleanup the event listener on component unmount
@@ -65,7 +63,6 @@ function Pagination() {
   };
 
   const handlePaginationClick = (pageNumber) => {
-    // Scroll smoothly to the top of the page
     window.scrollTo({ top: 0, behavior: "smooth" });
   
     // After 500ms, update the URL
@@ -73,6 +70,7 @@ function Pagination() {
       setCurrentPage(pageNumber);
       navigate(`/page/${pageNumber}`);
       dispatch(fetchCatImagesAsync(userSelectedBreed.id))
+      scrollToImages()
     }, 600);
   };
 
@@ -80,12 +78,14 @@ function Pagination() {
     setCurrentPage((prevPage) => Math.max(1, prevPage - 1));
     navigate(`/page/${currentPage - 1}`);
       dispatch(fetchCatImagesAsync(userSelectedBreed.id))
+      scrollToImages()
   };
 
   const handleNextClick = () => {
     setCurrentPage((prevPage) => prevPage + 1);
     navigate(`/page/${currentPage + 1}`);
       dispatch(fetchCatImagesAsync(userSelectedBreed.id))
+      scrollToImages()
   };
 
   return (

@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   &__tab {
@@ -62,16 +63,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     filter: blur(2px);
-    &--gifs {
+    &--shorties {
       background-image: url("../../../images/gif-tile.jpg");
     }
-    &--breeds {
+    &--breeds-info {
       background-image: url("../../../images/breeds-tile.png");
     }
     &--tags {
       background-image: url("../../../images/tags-tile.jpg");
     }
-    &--images {
+    &--breeds-list {
       background-image: url("../../../images/images-tile.png");
     }
   }

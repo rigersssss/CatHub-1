@@ -9,13 +9,21 @@
   padding: 0 1rem;
 
   &__container {
-    display: grid;
     width: 100%;
     max-width: 550px;
-    grid-template-columns: 90% 10%;
+  }
+
+  &__input-and-results {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
   }
 
   &__input {
+    width: 100%;
     height: 2.5rem;
     border-radius: 0px;
     border: none;
@@ -26,20 +34,90 @@
     outline: none;
 
     &:focus {
-        border-bottom: 3px solid $orange;
-        color: $orange;
-    }
-  }
-
-  &__confirm {
-    color: $white;
-    font-size: 2.5rem;
-    margin-left: 0.25rem;
-    cursor: pointer;
-    transition: color 0.3s;
-
-    &:hover {
+      border-bottom: 3px solid $orange;
       color: $orange;
     }
   }
+
+  &__results {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    width: 100%;
+    border: 1px solid $orange;
+    background-color: $black;
+    left: 0;
+    top: 105%;
+    color: $orange;
+    font-size: 1.5rem;
+    z-index: 10;
+    box-shadow: 3px 3px 3px $orange;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: height 0.3s;
+  }
+
+  &__results-list {
+    list-style-type: none;
+  }
+
+  &__results-element {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 12;
+    transition: transform 0.3s, padding 0.3s;
+
+    &:hover {
+      background-color: #cccccc50;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 80%;
+    }
+  }
+
+  &__results-name {
+    font-weight: 700;
+  }
+
+  &__results-menu {
+    position: absolute;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0.75rem 0.5rem;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #cccccc50;
+    }
+  }
+
+  &__results-menu-button {
+    position: relative;
+    padding: 0.5rem;
+    color: $orange;
+
+    @include fancyUnderline;
+  }
+}
+
+// Set dynamically
+.active-search-element {
+  transform: translateX(100%);
+  padding: 2rem 0.5rem;
+  z-index: 11;
 }

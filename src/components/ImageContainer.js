@@ -14,6 +14,10 @@ function ImageContainer({ image }) {
 
   const handleFavoriteClick = () => {
     setFavoriteClicked(!favoriteClicked);
+    // Remove focus after 100ms
+    setTimeout(() => {
+      document.activeElement.blur();
+    }, 100);
   };
 
   // Show popup on rating stars while clicked

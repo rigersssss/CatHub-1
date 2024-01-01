@@ -8,7 +8,7 @@ import { FiActivity } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import BreedInfoContainer from "../components/BreedInfoContainer";
 // Get all tag images
-const imagesContext = require.context("../images/cats/", false, /\.(jpg)$/);
+// const imagesContext = require.context("../images/cats/", false, /\.(jpg)$/);
 
 
 function BreedsInfoPage() {

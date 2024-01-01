@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import NotFoundPage from "./pages/NotFoundPage";
 import ImagesSelectionPage from "./pages/ImagesSelectionPage";
+import BreedsInfoPage from "./pages/BreedsInfoPage";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="privacypolicy" element={<PrivacyPolicyPage />} />
           <Route path="selection" element={<ImagesSelectionPage />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="breedsinfo" element={<BreedsInfoPage />} />
         </Routes>
       </Router>
     </Provider>

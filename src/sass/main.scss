@@ -5,10 +5,11 @@
 @import "./styles/components/mixins";
 
 // website styles
-@import "./styles/mainpage";
+@import "./styles/mainpage.scss";
 @import "./styles/notFoundPage.scss";
 @import "./styles/privacypolicypage.scss";
 @import "./styles/imagesSelectionPage.scss";
+@import "./styles/breedsInfoPage.scss";
 @import "./styles/components/originalWebsite";
 @import "./styles/components/header.scss";
 @import "./styles/components/navigation.scss";
@@ -32,7 +33,6 @@
 
 html {
   font-size: 62.5%;
-
 }
 
 body {

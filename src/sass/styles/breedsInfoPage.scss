@@ -1,0 +1,147 @@
+.breeds-info {
+  &__header-image {
+    position: relative;
+    background-image: url("../../images/breedsinfo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 200px;
+  }
+
+  &__header-image-filter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(17, 17, 17);
+    background: linear-gradient(
+      0deg,
+      rgba(17, 17, 17, 1) 0%,
+      rgba(17, 17, 17, 0.6) 15%,
+      rgba(17, 17, 17, 0.6) 85%,
+      rgba(17, 17, 17, 1) 100%
+    );
+  }
+
+  &__h1 {
+    text-align: center;
+  }
+
+  &__header-text {
+    margin: 1rem auto;
+    display: block;
+    font-size: 1.5rem;
+    color: $white;
+    max-width: 400px;
+    padding: 0.5rem;
+    text-shadow: 3px 3px 5px $black;
+
+    &--orange {
+      color: $orange;
+    }
+
+    &--icon {
+      padding: 0;
+      font-size: 3.5rem;
+    }
+
+    &--how {
+      text-align: center;
+    }
+  }
+
+  &__header-split-containers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__header-split-container {
+    &--1 {
+      border-right: 3px solid $orange;
+    }
+    &--2 {
+      text-align: left;
+    }
+  }
+
+  &__below-header-ol {
+    margin: 0 auto;
+    text-align: center;
+    color: $orange;
+    font-size: 1.25rem;
+  }
+
+  &__below-header-li {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  &__below-header-info {
+    padding: 0.5rem;
+    color: $white;
+    font-size: 1.25rem;
+    text-align: left;
+
+    &--orange {
+      color: $orange;
+    }
+  }
+
+  &__li-icon {
+    margin-right: 0.5rem;
+  }
+
+  &__glass-icon {
+    font-size: 1.5rem;
+    color: $white;
+  }
+
+  &__cat-container {
+    height: 200px;
+    width: 100%;
+    margin: 0.5rem auto;
+    padding: 1.5rem;
+  }
+
+  &__cat-button {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+        .breeds-info__cat-button-background {
+            opacity: 0;
+        }
+    }
+  }
+
+  &__cat-button-background {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: opacity .3s;
+  }
+
+  &__cat-button-name {
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      text-align: center;
+    color: $white;
+    font-weight: 700;
+    padding: 1rem;
+  }
+}

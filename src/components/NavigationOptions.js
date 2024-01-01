@@ -35,10 +35,17 @@ function NavigationOptions() {
   };
 
   const handleRandomClick = () => {
+    navigate("/")
     dispatch(setShowNav(false))
     dispatch(fetchCatImagesAsync())
     dispatch(setActiveSuggestionButton("Random"))
     scrollToImages()
+  }
+
+  const handleBreedsInfoClick = () => {
+    navigate("breedsinfo")
+    dispatch(setShowNav(false))
+
   }
 
 
@@ -122,7 +129,7 @@ function NavigationOptions() {
           </div>
         </li>
         <li>
-          <div className="navigation__option">
+          <div className="navigation__option" onClick={handleBreedsInfoClick}>
             <div className="navigation__option-topic">
               <AiFillRead />
               <p className="navigation__option-topic-name">Breeds Info</p>

@@ -13,16 +13,21 @@ import Catsino from "./Catsino";
 import SearchInput from "./SearchInput";
 import HeaderImage from "./HeaderImage";
 import UserSidePanel from "./UserSidePanel";
-import { selectShowNav, setShowNav, selectShowUserSidePanel, setShowUserSidePanel } from "../store/slices/uiSlice";
+import {
+  selectShowNav,
+  setShowNav,
+  selectShowUserSidePanel,
+  setShowUserSidePanel,
+} from "../store/slices/uiSlice";
 
 function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [showCatsino, setShowCatsino] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useDispatch()
-  const showNav = useSelector(selectShowNav)
-  const showUserSidePanel = useSelector(selectShowUserSidePanel)
+  const dispatch = useDispatch();
+  const showNav = useSelector(selectShowNav);
+  const showUserSidePanel = useSelector(selectShowUserSidePanel);
 
   useEffect(() => {
     if (showNav || showCatsino || showUserSidePanel) {
@@ -37,16 +42,16 @@ function Header() {
   };
 
   const handleMoreCatsClick = () => {
-    navigate("selection")
-  }
+    navigate("selection");
+  };
 
   const handleShowNav = () => {
     dispatch(setShowNav(!showNav));
   };
 
   const handleShowUserSidePanel = () => {
-    dispatch(setShowUserSidePanel(!showUserSidePanel))
-  }
+    dispatch(setShowUserSidePanel(!showUserSidePanel));
+  };
 
   const handleShowSearch = () => {
     setShowSearch(!showSearch);
@@ -78,14 +83,19 @@ function Header() {
               <AiOutlineSearch onClick={handleShowSearch} />
             </button>
             <button className="header__icon header__icon--user">
-              <AiOutlineUser onClick={handleShowUserSidePanel}/>
+              <AiOutlineUser onClick={handleShowUserSidePanel} />
             </button>
           </div>
         </div>
-        {showSearch && <SearchInput/>}
+        {showSearch && <SearchInput />}
         <div className="header__bottom-nav-container">
           <div className="header__bottom-nav">
-            <button className="header__bottom-button" onClick={handleMoreCatsClick}>More cats</button>
+            <button
+              className="header__bottom-button"
+              onClick={handleMoreCatsClick}
+            >
+              More cats
+            </button>
           </div>
           <div className="header__bottom-nav">
             <button
@@ -110,10 +120,10 @@ function Header() {
             </button>
           </div>
         </div>
+        {location.pathname === "/" && <HeaderImage />}
       </header>
       <Navigation />
       <UserSidePanel />
-      {location.pathname === "/" && <HeaderImage />}
       {showCatsino && <Catsino setShowCatsino={setShowCatsino} />}
     </div>
   );

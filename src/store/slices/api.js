@@ -22,7 +22,9 @@ export const fetchCatImages = async (breedName = "") => {
     });
 
     // Shuffle the cat images urls randomly to prevent displaying images in the same order if there are less than 10 images
-    const shuffledImageUrls = response.data.map((cat) => cat.url).sort(() => Math.random() - 0.5);
+    const shuffledImageUrls = response.data
+      .map((cat) => cat.url)
+      .sort(() => Math.random() - 0.5);
 
     return shuffledImageUrls;
   } catch (err) {
@@ -37,9 +39,26 @@ export const fetchCatBreeds = async () => {
     const response = await axios.get("https://api.thecatapi.com/v1/breeds", {
       params: { api_key: TCA_API_KEY },
     });
+    console.log("breeds response:", response.data);
     const catBreeds = response.data.map((breed) => ({
+      // Main data
       name: breed.name,
       id: breed.id,
+      
+      // Additional data
+      description: breed.description,
+      temperament: breed.temperament,
+      lifespan: breed.life_span,
+      weight: breed.weight,
+
+      energy: breed.energy_level,
+      health: breed.health_issues,
+      intelligence: breed.intelligence,
+      shedding: breed.shedding_level,
+      social: breed.social_needs,
+      stranger: breed.stranger_friendly,
+      
+      more: breed.vcahospitals_url,
     }));
     return catBreeds;
   } catch (err) {
@@ -68,13 +87,12 @@ export const fetchCatImagesByTags = async (tag) => {
     const isLargeScreen = window.innerWidth > 900;
 
     // Downloading images depending on screen resolution
-    const images = selectedPhotos.map(photo =>
+    const images = selectedPhotos.map((photo) =>
       isLargeScreen ? photo.src.landscape : photo.src.large
     );
 
-    console.log("Fetched random images with tags:\n", images.join("\n"))
+    console.log("Fetched random images with tags:\n", images.join("\n"));
     return images;
-
   } catch (err) {
     console.error("Error fetching cat images by tags:", err);
     throw err;

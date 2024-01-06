@@ -42,7 +42,7 @@ function BreedsList({handleFullListClick}) {
         </li>
       ))}
       <li className="navigation__sub-option-item">
-        <button className="navigation__sub-option-button" onClick={handleFullListClick}>
+        <button className="navigation__sub-option-button" onClick={() => handleFullListClick("breeds")}>
           All breeds
         </button>
       </li>

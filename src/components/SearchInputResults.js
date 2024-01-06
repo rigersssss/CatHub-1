@@ -42,6 +42,23 @@ function SearchInputResults({ searchResults, hideResults, handleClearInput }) {
     setActiveElementIndex(isActive ? null : index);
   };
 
+  const handleLearnMore = (id) => {
+    console.log(id);
+  
+    navigate("breedsinfo");
+    
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
+  
+  };
+
   return (
     <div className="search__results">
       <ul className="search__results-list">
@@ -65,7 +82,7 @@ function SearchInputResults({ searchResults, hideResults, handleClearInput }) {
               >
                 Show images
               </button>
-              <button className="search__results-menu-button">
+              <button className="search__results-menu-button" onClick={() => handleLearnMore(result.id)}>
                 Learn more about {result.name}
               </button>
             </div>

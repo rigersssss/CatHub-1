@@ -25,7 +25,7 @@ function Pagination() {
 
     setCurrentPage(getPageNumberFromPath());
 
-    // Update the number of page buttons when the component mounts
+    // Set the number of page buttons when the component mounts
     setPageButtons(getPageButtons());
     
     window.addEventListener("resize", handleWindowResize);
@@ -63,14 +63,18 @@ function Pagination() {
   };
 
   const handlePaginationClick = (pageNumber) => {
+    if (pageNumber === currentPage) {
+      return null;
+    }
+  
     window.scrollTo({ top: 0, behavior: "smooth" });
   
-    // After 500ms, update the URL
+    // After 600ms update the URL
     setTimeout(() => {
       setCurrentPage(pageNumber);
+      dispatch(fetchCatImagesAsync(userSelectedBreed.id));
       navigate(`/page/${pageNumber}`);
-      dispatch(fetchCatImagesAsync(userSelectedBreed.id))
-      scrollToImages()
+      scrollToImages();
     }, 600);
   };
 

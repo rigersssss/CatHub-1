@@ -97,7 +97,7 @@
     font-size: 2rem;
     color: $orange;
     transition: color 0.3s;
-
+    cursor: pointer; 
     &:hover {
       color: $white;
     }
@@ -224,7 +224,7 @@
     &--tumblr {
       color: #2f4155;
     }
-    
+
     &--whatsapp {
       color: #4dee6a;
     }
@@ -233,7 +233,7 @@
   &__contact-follow-link-box {
     transition: transform 0.3s;
     &:hover {
-     transform: scale(1.2); 
+      transform: scale(1.2);
     }
   }
 

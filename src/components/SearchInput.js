@@ -128,7 +128,7 @@ function SearchInput() {
       breed.name.toLowerCase().includes(inputText.toLowerCase())
     );
 
-    // Formatting data to correct one
+    // Formatting data to the correct one
     const newSearchResults = [
       ...filteredBreeds.map((breed) => ({ id: breed.id, name: breed.name, type: "Breed" })),
       ...filteredTags.map((tag) => ({ id: tag, name: tag, type: "Tag" })),

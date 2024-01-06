@@ -26,28 +26,37 @@ function NavigationOptions() {
     showCommunities: false,
   });
 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleFullListClick = () => {
+  const handleFullListClick = (section) => {
     navigate("selection");
-    dispatch(setShowNav(false))
+    dispatch(setShowNav(false));
+    if (section) {
+      setTimeout(() => {
+        const element = document.getElementById(`${section}-selection`);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100);
+    }
   };
 
   const handleRandomClick = () => {
-    navigate("/")
-    dispatch(setShowNav(false))
-    dispatch(fetchCatImagesAsync())
-    dispatch(setActiveSuggestionButton("Random"))
-    scrollToImages()
-  }
+    navigate("/");
+    dispatch(setShowNav(false));
+    dispatch(fetchCatImagesAsync());
+    dispatch(setActiveSuggestionButton("Random"));
+    scrollToImages();
+  };
 
   const handleBreedsInfoClick = () => {
-    navigate("breedsinfo")
-    dispatch(setShowNav(false))
-
-  }
-
+    navigate("breedsinfo");
+    dispatch(setShowNav(false));
+  };
 
   const handleSubListClick = (data) => {
     switch (data) {
@@ -101,7 +110,9 @@ function NavigationOptions() {
               <AiOutlineCaretDown />
             </div>
           </div>
-          {showSubOptions.showTags && <TagsList handleFullListClick={handleFullListClick}/>}
+          {showSubOptions.showTags && (
+            <TagsList handleFullListClick={handleFullListClick} />
+          )}
         </li>
         <li>
           <div
@@ -118,7 +129,9 @@ function NavigationOptions() {
               <AiOutlineCaretDown />
             </div>
           </div>
-          {showSubOptions.showBreeds && <BreedsList handleFullListClick={handleFullListClick}/>}
+          {showSubOptions.showBreeds && (
+            <BreedsList handleFullListClick={handleFullListClick} />
+          )}
         </li>
         <li>
           <div className="navigation__option" onClick={handleRandomClick}>

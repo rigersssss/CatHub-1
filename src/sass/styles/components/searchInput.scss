@@ -67,7 +67,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0.75rem 0.5rem;
+    padding: 1.25rem 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s;
     z-index: 12;
@@ -108,7 +108,7 @@
 
   &__results-menu-button {
     position: relative;
-    padding: 0.5rem;
+    padding: 1rem;
     color: $orange;
 
     @include fancyUnderline;

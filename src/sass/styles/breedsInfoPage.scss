@@ -99,6 +99,14 @@
     }
   }
 
+  &__header-divider {
+    margin: 2rem auto;
+    width: 90%;
+    height: 1px;
+    max-width: 1200px;
+    border-bottom: 1px solid $orange;
+  }
+
   &__li-icon {
     margin-right: 0.5rem;
   }

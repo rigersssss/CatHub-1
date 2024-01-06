@@ -157,11 +157,13 @@ function BreedsInfoPage() {
           of information!
         </p>
         <p className="breeds-info__below-header-info breeds-info__below-header-info--orange">
-          *Keep in mind that if you want to search for a specific breed, you can
+          *If you want to search for a specific breed, you can
           always use the <AiOutlineSearch className="breeds-info__glass-icon" />{" "}
           icon in the top right corner
         </p>
       </div>
+      <div className="breeds-info__header-divider"></div>
+
       <div className="breeds-info__cat-info-grid">
       {catInfo.length > 0 &&
           breedsArray.map((breed, index) => {

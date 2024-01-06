@@ -138,7 +138,7 @@ function ImagesSelectionPage() {
         <AiOutlineSearch className="selection__h2-subtext--icon" />
       </p>
       <section>
-        <h3 className="selection__h3 selection__h3--tags">#Tags</h3>
+        <h3 className="selection__h3 selection__h3--tags" id="tags-selection">#Tags</h3>
         <p className="selection__h3-subtext">
           Tags images are delivered by Pexels
         </p>
@@ -162,7 +162,7 @@ function ImagesSelectionPage() {
         </div>
       </section>
       <section>
-        <h3 className="selection__h3 selection__h3--breeds">
+        <h3 className="selection__h3 selection__h3--breeds" id="breeds-selection">
           <FaCat /> Breeds
         </h3>
         <p className="selection__h3-subtext">

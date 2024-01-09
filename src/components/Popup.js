@@ -7,14 +7,14 @@ function Popup() {
   const popup = useSelector(selectShowPopup);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [letterOpacity, setLetterOpacity] = useState([]);
-
-  const timeoutRef = useRef(null);
+  const animationRef = useRef(null);
+  const hideTimerRef = useRef(null);
 
   // Handling displaying popup
   useEffect(() => {
-    // Stop timer if exists
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+    // Stop animation if it's running
+    if (animationRef.current) {
+      clearInterval(animationRef.current);
     }
 
     if (popup.show) {
@@ -23,44 +23,36 @@ function Popup() {
       const letters = popup.text.split("");
       setLetterOpacity(Array(letters.length).fill(0));
 
-      timeoutRef.current = setTimeout(() => {
-        setIsPopupVisible(false);
-        dispatch(setShowPopup({ show: false, text: "" }));
-      }, 2500);
-    }
-  }, [popup, dispatch]);
-
-  // Handling popup text animation
-  useEffect(() => {
-    if (isPopupVisible) {
       const animationDuration = 1000;
       const interval = animationDuration / letterOpacity.length;
 
-      // Reset letterOpacity and timer when isPopupVisible is updated
-      setLetterOpacity(Array(letterOpacity.length).fill(0));
-      clearTimeout(timeoutRef.current);
+      animationRef.current = setInterval(() => {
+        setLetterOpacity((prevOpacity) =>
+          prevOpacity.map((opacity, index) =>
+            index === 0 ? 1 : prevOpacity[index - 1]
+          )
+        );
+      }, interval);
 
-      for (let i = 0; i < letterOpacity.length; i++) {
-        setTimeout(() => {
-          setLetterOpacity((prevOpacity) =>
-            prevOpacity.map((opacity, index) =>
-              index === i ? 1 : opacity
-            )
-          );
-        }, i * interval);
+      // Clear the previous timer if it exists
+      if (hideTimerRef.current) {
+        clearTimeout(hideTimerRef.current);
       }
 
-      // Set a new timer for hiding the popup
-      timeoutRef.current = setTimeout(() => {
+      // Set a timer for hiding the popup
+      hideTimerRef.current = setTimeout(() => {
         setIsPopupVisible(false);
         dispatch(setShowPopup({ show: false, text: "" }));
+        clearInterval(animationRef.current);
       }, 2500);
     }
-  }, [isPopupVisible, letterOpacity.length, dispatch]);
+  }, [popup, dispatch, letterOpacity.length]);
 
   const handleClick = () => {
     setIsPopupVisible(false);
     dispatch(setShowPopup({ show: false, text: "" }));
+    // Clear the timer on click
+    clearTimeout(hideTimerRef.current);
   };
 
   return (

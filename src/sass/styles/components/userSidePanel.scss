@@ -106,6 +106,10 @@
       font-size: 5rem;
     }
   }
+  &__preview {
+    color: $orange;
+    z-index: 100000;
+  }
 }
 
 // Set dynamically

@@ -18,6 +18,7 @@ import {
   setShowNav,
   selectShowUserSidePanel,
   setShowUserSidePanel,
+  setShowPopup
 } from "../store/slices/uiSlice";
 
 function Header() {
@@ -51,6 +52,7 @@ function Header() {
 
   const handleShowUserSidePanel = () => {
     dispatch(setShowUserSidePanel(!showUserSidePanel));
+    dispatch(setShowPopup({show: true,text:"User side panel is only for a preview"}))
   };
 
   const handleShowSearch = () => {

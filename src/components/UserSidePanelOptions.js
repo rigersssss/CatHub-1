@@ -4,6 +4,7 @@ function UserSidePanelOptions() {
   return (
     <div className="user-side-panel__options">
       <div className="user-side-panel__general">
+
         <div className="user-side-panel__option user-side-panel__option--paw">
           <div className="user-side-panel__option-icon user-side-panel__option-icon--paw">
             <FaPaw />

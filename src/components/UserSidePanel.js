@@ -25,6 +25,7 @@ function UserSidePanel() {
         showUserSidePanel ? "" : "user-side-panel__active"
       }`}
     >
+
       <div className="user-side-panel__menu">
         <div className="user-side-panel__top">
           <div>

@@ -31,7 +31,7 @@ export const fetchCatImagesByTagsAsync = createAsyncThunk(
 const catImageSlice = createSlice({
   name: "cat",
   initialState: {
-    userSelectedBreed: { name: "", id: "" },
+    userSelectedBreed: { name: "Random", id: "Random" },
     catImages: [],
     catBreeds: [],
     catImagesDispatchedFirstTime: false,
@@ -42,7 +42,7 @@ const catImageSlice = createSlice({
     },
     setUserSelectedBreed: (state, action) => {
       state.userSelectedBreed = action.payload;
-      console.log(state.userSelectedBreed);
+      console.log("user selected breed:", state.userSelectedBreed);
     },
   },
   extraReducers: (builder) => {

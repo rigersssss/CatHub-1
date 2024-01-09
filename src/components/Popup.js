@@ -12,8 +12,6 @@ function Popup() {
 
   // Handling displaying popup
   useEffect(() => {
-    console.log(popup);
-
     // Stop timer if exists
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -38,6 +36,10 @@ function Popup() {
       const animationDuration = 1000;
       const interval = animationDuration / letterOpacity.length;
 
+      // Reset letterOpacity and timer when isPopupVisible is updated
+      setLetterOpacity(Array(letterOpacity.length).fill(0));
+      clearTimeout(timeoutRef.current);
+
       for (let i = 0; i < letterOpacity.length; i++) {
         setTimeout(() => {
           setLetterOpacity((prevOpacity) =>
@@ -47,8 +49,14 @@ function Popup() {
           );
         }, i * interval);
       }
+
+      // Set a new timer for hiding the popup
+      timeoutRef.current = setTimeout(() => {
+        setIsPopupVisible(false);
+        dispatch(setShowPopup({ show: false, text: "" }));
+      }, 2500);
     }
-  }, [isPopupVisible, letterOpacity.length]);
+  }, [isPopupVisible, letterOpacity.length, dispatch]);
 
   const handleClick = () => {
     setIsPopupVisible(false);

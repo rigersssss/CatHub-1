@@ -10,6 +10,7 @@ import {
   selectCatImages,
   setCatImagesDispatchedFirstTime,
   selectCatImagesDispatchedFirstTime,
+  selectUserSelectedBreed
 } from "../store/slices/catImageSlice";
 import { selectDisplayedBreedName} from "../store/slices/uiSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,14 +24,15 @@ function MainPage() {
   );
   const displayedBreedName = useSelector(selectDisplayedBreedName);
   const fetchingStatus = useSelector((state) => state.cat.status);
+  const userSelectedBreed = useSelector(selectUserSelectedBreed)
 
-  // Downloading images when component is rendered for the first time
+  // Downloading images when component is rendered for the first time and user didn't choose a breed or tag yet
   useEffect(() => {
-    if (!catImagesDispatchedFirstTime) {
+    if (!catImagesDispatchedFirstTime && (userSelectedBreed.name === "Random" || "")) {
       dispatch(fetchCatImagesAsync());
       dispatch(setCatImagesDispatchedFirstTime(true));
     }
-  }, [dispatch, catImagesDispatchedFirstTime, displayedBreedName]);
+  }, [dispatch, catImagesDispatchedFirstTime, displayedBreedName, userSelectedBreed]);
 
   return (
     <div className="main">

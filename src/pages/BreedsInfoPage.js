@@ -96,8 +96,14 @@ function BreedsInfoPage() {
   const typeOptions = ["Ascending", "Descending"];
 
   // Sorting logic
+
   const sortCatInfo = (type, data) => {
     let sortedCatInfo = [...catInfo];
+  
+    const getWeightValue = (weight) => {
+      const value = weight.metric;
+      return parseInt(value.split("-")[0]);
+    };
   
     switch (type) {
       case "Ascending":
@@ -117,7 +123,9 @@ function BreedsInfoPage() {
           } else if (data === "Shedding") {
             return a.shedding - b.shedding;
           } else if (data === "Weight") {
-            return parseInt(a.weight.split("-")[0]) - parseInt(b.weight.split("-")[0]);
+            return getWeightValue(a.weight) - getWeightValue(b.weight);
+          } else if (data === "Social") {
+            return a.social - b.social;
           }
           return 0;
         });
@@ -140,7 +148,9 @@ function BreedsInfoPage() {
           } else if (data === "Shedding") {
             return b.shedding - a.shedding;
           } else if (data === "Weight") {
-            return parseInt(b.weight.split("-")[0]) - parseInt(a.weight.split("-")[0]);
+            return getWeightValue(b.weight) - getWeightValue(a.weight);
+          } else if (data === "Social") {
+            return b.social - a.social;
           }
           return 0;
         });
@@ -152,6 +162,7 @@ function BreedsInfoPage() {
   
     return sortedCatInfo;
   };
+  
 
   const sortedCatInfo = sortCatInfo(showSort.sortType, showSort.sortData);
 

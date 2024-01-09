@@ -4,6 +4,7 @@ import { fetchCatImagesAsync, setUserSelectedBreed } from "../store/slices/catIm
 import { setShowNav } from "../store/slices/uiSlice";
 import { useNavigate } from "react-router-dom";
 import { setDisplayedBreedName, setActiveSuggestionButton } from "../store/slices/uiSlice";
+import scrollToImages from "../helpers/scroll";
 
 function BreedsList({handleFullListClick}) {
   const dispatch = useDispatch()
@@ -30,6 +31,7 @@ function BreedsList({handleFullListClick}) {
     dispatch(setDisplayedBreedName(breed.name))
     dispatch(setShowNav(false))
     dispatch(setActiveSuggestionButton(breed.name))
+    scrollToImages()
   };
 
   return (

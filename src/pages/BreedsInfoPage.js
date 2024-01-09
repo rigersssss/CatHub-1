@@ -21,6 +21,14 @@ function BreedsInfoPage() {
   const catInfo = useSelector(selectCatBreeds);
   const dispatch = useDispatch();
   const [activeIndex, setActiveIndex] = useState(null);
+  const [showSort, setShowSort] = useState({
+    type: false,
+    data: false,
+    sortType: "",
+    sortData: "",
+    selectedTypeButton: null,
+    selectedDataButton: null,
+  });
 
   useEffect(() => {
     if (catInfo.length === 0) {
@@ -36,75 +44,116 @@ function BreedsInfoPage() {
     setActiveIndex(index === activeIndex ? null : index);
   };
 
-  const breedsArray = [
-    { name: "Abyssinian", id: "abys" },
-    { name: "Aegean", id: "aege" },
-    { name: "American Bobtail", id: "abob" },
-    { name: "American Curl", id: "acur" },
-    { name: "American Shorthair", id: "asho" },
-    { name: "American Wirehair", id: "awir" },
-    { name: "Arabian Mau", id: "amau" },
-    { name: "Australian Mist", id: "amis" },
-    { name: "Balinese", id: "bali" },
-    { name: "Bambino", id: "bamb" },
-    { name: "Bengal", id: "beng" },
-    { name: "Birman", id: "birm" },
-    { name: "Bombay", id: "bomb" },
-    { name: "British Longhair", id: "bslo" },
-    { name: "British Shorthair", id: "bsho" },
-    { name: "Burmese", id: "bure" },
-    { name: "Burmilla", id: "buri" },
-    { name: "California Spangled", id: "cspa" },
-    { name: "Chantilly-Tiffany", id: "ctif" },
-    { name: "Chartreux", id: "char" },
-    { name: "Chausie", id: "chau" },
-    { name: "Cheetoh", id: "chee" },
-    { name: "Colorpoint Shorthair", id: "csho" },
-    { name: "Cornish Rex", id: "crex" },
-    { name: "Cymric", id: "cymr" },
-    { name: "Cyprus", id: "cypr" },
-    { name: "Devon Rex", id: "drex" },
-    { name: "Donskoy", id: "dons" },
-    { name: "Dragon Li", id: "lihu" },
-    { name: "Egyptian Mau", id: "emau" },
-    { name: "European Burmese", id: "ebur" },
-    { name: "Exotic Shorthair", id: "esho" },
-    { name: "Havana Brown", id: "hbro" },
-    { name: "Himalayan", id: "hima" },
-    { name: "Japanese Bobtail", id: "jbob" },
-    { name: "Javanese", id: "java" },
-    { name: "Khao Manee", id: "khao" },
-    { name: "Korat", id: "kora" },
-    { name: "Kurilian", id: "kuri" },
-    { name: "LaPerm", id: "lape" },
-    { name: "Maine Coon", id: "mcoo" },
-    { name: "Malayan", id: "mala" },
-    { name: "Manx", id: "manx" },
-    { name: "Munchkin", id: "munc" },
-    { name: "Nebelung", id: "nebe" },
-    { name: "Norwegian Forest Cat", id: "norw" },
-    { name: "Ocicat", id: "ocic" },
-    { name: "Oriental", id: "orie" },
-    { name: "Persian", id: "pers" },
-    { name: "Pixie-bob", id: "pixi" },
-    { name: "Ragamuffin", id: "raga" },
-    { name: "Ragdoll", id: "ragd" },
-    { name: "Russian Blue", id: "rblu" },
-    { name: "Savannah", id: "sava" },
-    { name: "Scottish Fold", id: "sfol" },
-    { name: "Selkirk Rex", id: "srex" },
-    { name: "Siamese", id: "siam" },
-    { name: "Siberian", id: "sibe" },
-    { name: "Singapura", id: "sing" },
-    { name: "Snowshoe", id: "snow" },
-    { name: "Somali", id: "soma" },
-    { name: "Sphynx", id: "sphy" },
-    { name: "Tonkinese", id: "tonk" },
-    { name: "Toyger", id: "toyg" },
-    { name: "Turkish Angora", id: "tang" },
-    { name: "Turkish Van", id: "tvan" },
-    { name: "York Chocolate", id: "ycho" },
+  const handleShowTypeClick = () => {
+    setShowSort((prev) => ({ ...prev, type: !prev.type, data: false }));
+  };
+
+  const handleSortTypeClick = (type) => {
+    setShowSort((prev) => ({
+      ...prev,
+      sortType: type,
+      type: false,
+      selectedTypeButton: type,
+    }));
+  };
+
+  const handleShowDataClick = () => {
+    setShowSort((prev) => ({ ...prev, data: !prev.data, type: false }));
+  };
+
+  const handleSortDataClick = (data) => {
+    setShowSort((prev) => ({
+      ...prev,
+      sortData: data,
+      data: false,
+      selectedDataButton: data,
+    }));
+  };
+
+  const handleResetClick = () => {
+    setShowSort({
+      type: false,
+      data: false,
+      sortType: "",
+      sortData: "",
+      selectedTypeButton: null,
+      selectedDataButton: null,
+    });
+  };
+
+  const dataOptions = [
+    "Alphabet",
+    "Energy",
+    "Friendly",
+    "Health",
+    "Intelligence",
+    "Lifespan",
+    "Social",
+    "Shedding",
+    "Weight",
   ];
+
+  const typeOptions = ["Ascending", "Descending"];
+
+  // Sorting logic
+  const sortCatInfo = (type, data) => {
+    let sortedCatInfo = [...catInfo];
+  
+    switch (type) {
+      case "Ascending":
+        sortedCatInfo.sort((a, b) => {
+          if (data === "Alphabet") {
+            return a.name.localeCompare(b.name);
+          } else if (data === "Energy") {
+            return a.energy - b.energy;
+          } else if (data === "Friendly") {
+            return a.friendliness - b.friendliness;
+          } else if (data === "Health") {
+            return a.health - b.health;
+          } else if (data === "Intelligence") {
+            return a.intelligence - b.intelligence;
+          } else if (data === "Lifespan") {
+            return parseInt(a.lifespan.split("-")[0]) - parseInt(b.lifespan.split("-")[0]);
+          } else if (data === "Shedding") {
+            return a.shedding - b.shedding;
+          } else if (data === "Weight") {
+            return parseInt(a.weight.split("-")[0]) - parseInt(b.weight.split("-")[0]);
+          }
+          return 0;
+        });
+        break;
+  
+      case "Descending":
+        sortedCatInfo.sort((a, b) => {
+          if (data === "Alphabet") {
+            return b.name.localeCompare(a.name);
+          } else if (data === "Energy") {
+            return b.energy - a.energy;
+          } else if (data === "Friendly") {
+            return b.friendliness - a.friendliness;
+          } else if (data === "Health") {
+            return b.health - a.health;
+          } else if (data === "Intelligence") {
+            return b.intelligence - a.intelligence;
+          } else if (data === "Lifespan") {
+            return parseInt(b.lifespan.split("-")[0]) - parseInt(a.lifespan.split("-")[0]);
+          } else if (data === "Shedding") {
+            return b.shedding - a.shedding;
+          } else if (data === "Weight") {
+            return parseInt(b.weight.split("-")[0]) - parseInt(a.weight.split("-")[0]);
+          }
+          return 0;
+        });
+        break;
+  
+      default:
+        break;
+    }
+  
+    return sortedCatInfo;
+  };
+
+  const sortedCatInfo = sortCatInfo(showSort.sortType, showSort.sortData);
 
   return (
     <div className="breeds-info">
@@ -157,31 +206,84 @@ function BreedsInfoPage() {
           of information!
         </p>
         <p className="breeds-info__below-header-info breeds-info__below-header-info--orange">
-          *If you want to search for a specific breed, you can
-          always use the <AiOutlineSearch className="breeds-info__glass-icon" />{" "}
-          icon in the top right corner
+          *If you want to search for a specific breed, you can always use the{" "}
+          <AiOutlineSearch className="breeds-info__glass-icon" /> icon in the
+          top right corner
         </p>
       </div>
       <div className="breeds-info__header-divider"></div>
+      <div className="breeds-info__sort-big-container">
+        <div className="breeds-info__sort-small-container">
+          <button
+            className="breeds-info__sort-button breeds-info__sort-button--chosen breeds-info__sort-button--data"
+            onClick={handleShowDataClick}
+          >
+            {showSort.sortData !== "" ? showSort.sortData : "------"}
+          </button>
+          {showSort.data && (
+            <div className="breeds-info__sort-options">
+              {dataOptions.map(
+                (option) =>
+                  option !== showSort.selectedDataButton && (
+                    <button
+                      key={option}
+                      className="breeds-info__sort-button breeds-info__sort-button--data"
+                      onClick={() => handleSortDataClick(option)}
+                    >
+                      {option}
+                    </button>
+                  )
+              )}
+            </div>
+          )}
+        </div>
+        <div className="breeds-info__sort-small-container">
+          <button
+            className="breeds-info__sort-button breeds-info__sort-button--chosen breeds-info__sort-button--data"
+            onClick={handleShowTypeClick}
+          >
+            {showSort.sortType !== "" ? showSort.sortType : "------"}
+          </button>
+          {showSort.type && (
+            <div className="breeds-info__sort-options">
+              {typeOptions.map(
+                (option) =>
+                  option !== showSort.selectedTypeButton && (
+                    <button
+                      key={option}
+                      className="breeds-info__sort-button breeds-info__sort-button--toggle"
+                      onClick={() => handleSortTypeClick(option)}
+                    >
+                      {option}
+                    </button>
+                  )
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <button
+        className="breeds-info__reset-sort-button"
+        onClick={handleResetClick}
+      >
+        Reset sorting
+      </button>
 
       <div className="breeds-info__cat-info-grid">
-      {catInfo.length > 0 &&
-          breedsArray.map((breed, index) => {
-            // Find matching object in catInfo array
-            const matchingBreed = catInfo.find((cat) => cat.name === breed.name);
-
-            return (
-              <BreedInfoContainer
-                key={breed.id}
-                image={imagesContext(
-                  `./breed-${modifyBreedName(breed.name)}.jpg`
-                )}
-                catInfo={matchingBreed}
-                isActive={index === activeIndex}
-                handleClick={() => handleContainerClick(index)}
-              />
-            );
-          })}
+      {sortedCatInfo.map((breed, index) => {
+          return (
+            <BreedInfoContainer
+              key={breed.id}
+              image={imagesContext(
+                `./breed-${modifyBreedName(breed.name)}.jpg`
+              )}
+              catInfo={breed}
+              isActive={index === activeIndex}
+              handleClick={() => handleContainerClick(index)}
+            />
+          );
+        })}
       </div>
     </div>
   );

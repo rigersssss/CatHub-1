@@ -62,8 +62,13 @@ function Footer() {
   };
   return (
     <footer className="footer">
+      <div className="footer__no-func">
+        <p className="footer__text-p1">
+          *The social media links and newsletter signup form are only a preview
+        </p>
+      </div>
       <div className="footer__text">
-        <p>
+        <p className="footer__text-p2">
           The CatHub team updates and expands our library with new information
           about cats every day. Everything is right here and fully accessible.
           We offer a vast selection of content dedicated to the world of cats,

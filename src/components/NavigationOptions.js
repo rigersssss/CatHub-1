@@ -14,8 +14,8 @@ import { FaCat, FaFish, FaExternalLinkAlt } from "react-icons/fa";
 import TagsList from "./TagsList";
 import BreedsList from "./BreedsList";
 import CommunitiesList from "./CommunitiesList";
-import { useDispatch } from "react-redux";
-import { setShowNav, setActiveSuggestionButton } from "../store/slices/uiSlice";
+import { useDispatch} from "react-redux";
+import { setShowNav, setActiveSuggestionButton} from "../store/slices/uiSlice";
 import { fetchCatImagesAsync } from "../store/slices/catImageSlice";
 import scrollToImages from "../helpers/scroll";
 
@@ -28,6 +28,10 @@ function NavigationOptions() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handleMembershipClick = () => {
+    console.log("Membership clicked");
+  };
 
   const handleFullListClick = (section) => {
     navigate("selection");
@@ -167,23 +171,24 @@ function NavigationOptions() {
           {showSubOptions.showCommunities && <CommunitiesList />}
         </li>
       </ul>
-      <div className="navigation__membership">
-        <p>Get Full CatHub Membership</p>
-      </div>
+      <button className="navigation__membership" onClick={handleMembershipClick}>
+        Get Full CatHub Membership
+      </button>
+      <p className="navigation__preview">*Above button is only for a preview</p>
       <div className="navigation__other-options">
         <a href="google.com" className="navigation__other-option">
-          <FaFish />
+          <FaFish className="navigation__other-option-icon"/>
           <p>Treats</p>
         </a>
-        <a href="google.com" className="navigation__other-option">
-          <AiFillRead />
+        <button className="navigation__other-option" onClick={handleBreedsInfoClick}>
+          <AiFillRead className="navigation__other-option-icon"/>
           <p>Breeds Info</p>
-        </a>
+        </button>
         <a
           href="https://www.webmd.com/pets/cats/default.htm"
           className="navigation__other-option"
         >
-          <AiFillHeart />
+          <AiFillHeart className="navigation__other-option-icon"/>
           <p>
             Cat Health <FaExternalLinkAlt />
           </p>
@@ -192,7 +197,7 @@ function NavigationOptions() {
           href="https://www.arealme.com/what-kind-of-cat-are-you/en/"
           className="navigation__other-option"
         >
-          <AiFillGithub />
+          <AiFillGithub className="navigation__other-option-icon"/>
           <p>GitHub</p>
         </a>
       </div>

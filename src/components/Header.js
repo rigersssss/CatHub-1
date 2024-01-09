@@ -72,6 +72,9 @@ function Header() {
             >
               <AiOutlineUnorderedList />
             </button>
+            <button className="header__icon header__icon--user">
+              <AiOutlineUser onClick={handleShowUserSidePanel} />
+            </button>
           </div>
           <div className="header__logo-container header__container">
             <button onClick={handleLogoClick}>
@@ -81,9 +84,6 @@ function Header() {
           <div className="header__main-icons-container header__container">
             <button className="header__icon header__icon--search">
               <AiOutlineSearch onClick={handleShowSearch} />
-            </button>
-            <button className="header__icon header__icon--user">
-              <AiOutlineUser onClick={handleShowUserSidePanel} />
             </button>
           </div>
         </div>

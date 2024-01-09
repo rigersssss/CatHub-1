@@ -9,6 +9,7 @@ import { store } from "./store/store";
 import NotFoundPage from "./pages/NotFoundPage";
 import ImagesSelectionPage from "./pages/ImagesSelectionPage";
 import BreedsInfoPage from "./pages/BreedsInfoPage";
+import Popup from "./components/Popup";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Router>
       <ScrollToTop />
       <Header/>
+      <Popup />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/page/*" element={<MainPage />} />

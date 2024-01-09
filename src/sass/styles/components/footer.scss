@@ -5,8 +5,15 @@
   text-align: center;
   width: 95%;
   margin: 0 auto;
+  
+  &__text-p1 {
+    color: $orange;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1.35rem;
+  }
 
-  p {
+  &__text-p2 {
     padding: 1rem;
     border-bottom: 1px solid $gray;
     border-top: 1px solid $gray;

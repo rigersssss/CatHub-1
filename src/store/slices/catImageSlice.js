@@ -42,6 +42,7 @@ const catImageSlice = createSlice({
     },
     setUserSelectedBreed: (state, action) => {
       state.userSelectedBreed = action.payload;
+      console.log(state.userSelectedBreed);
     },
   },
   extraReducers: (builder) => {

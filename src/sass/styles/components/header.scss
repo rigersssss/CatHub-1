@@ -30,9 +30,15 @@
         color: $white;
       }
     }
-    &--search,
-    &--user {
+    &--search {
       color: $gray;
+      &:hover {
+        color: $white;
+      }
+    }
+    &--user {
+      margin-left: 0.5rem;
+      color: $orange;
       &:hover {
         color: $white;
       }

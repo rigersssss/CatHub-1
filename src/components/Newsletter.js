@@ -1,5 +1,6 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { FaNewspaper } from "react-icons/fa";
+
 function Newsletter() {
   return (
     <div className="footer__newsletter">

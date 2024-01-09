@@ -11,7 +11,7 @@ import {
   setCatImagesDispatchedFirstTime,
   selectCatImagesDispatchedFirstTime,
 } from "../store/slices/catImageSlice";
-import { selectDisplayedBreedName } from "../store/slices/uiSlice";
+import { selectDisplayedBreedName} from "../store/slices/uiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Pagination from "../components/Pagination";
 

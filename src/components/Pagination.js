@@ -1,8 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
-import { selectUserSelectedBreed, fetchCatImagesAsync } from "../store/slices/catImageSlice";
-import scrollToImages from "../helpers/scroll"
+import {
+  selectUserSelectedBreed,
+  fetchCatImagesAsync,
+  fetchCatImagesByTagsAsync,
+} from "../store/slices/catImageSlice";
+import scrollToImages from "../helpers/scroll";
 
 function Pagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -10,8 +14,8 @@ function Pagination() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useDispatch()
-  const userSelectedBreed = useSelector(selectUserSelectedBreed)
+  const dispatch = useDispatch();
+  const userSelectedBreed = useSelector(selectUserSelectedBreed);
 
   const handleWindowResize = useCallback(() => {
     setPageButtons(getPageButtons());
@@ -27,7 +31,7 @@ function Pagination() {
 
     // Set the number of page buttons when the component mounts
     setPageButtons(getPageButtons());
-    
+
     window.addEventListener("resize", handleWindowResize);
 
     // Cleanup the event listener on component unmount
@@ -72,7 +76,15 @@ function Pagination() {
     // After 600ms update the URL
     setTimeout(() => {
       setCurrentPage(pageNumber);
-      dispatch(fetchCatImagesAsync(userSelectedBreed.id));
+      // If user didn't select any breed yet set it to Random
+      const selectedBreedId = userSelectedBreed?.id || "Random";
+      
+      // If first letter of the id is lowercase it means that tag has been selected, otherwise it's breed
+      if (selectedBreedId[0] === selectedBreedId[0].toLowerCase()) {
+        dispatch(fetchCatImagesByTagsAsync(selectedBreedId));
+      } else {
+        dispatch(fetchCatImagesAsync(selectedBreedId));
+      }
       navigate(`/page/${pageNumber}`);
       scrollToImages();
     }, 600);
@@ -81,15 +93,15 @@ function Pagination() {
   const handlePrevClick = () => {
     setCurrentPage((prevPage) => Math.max(1, prevPage - 1));
     navigate(`/page/${currentPage - 1}`);
-      dispatch(fetchCatImagesAsync(userSelectedBreed.id))
-      scrollToImages()
+    dispatch(fetchCatImagesAsync(userSelectedBreed.id));
+    scrollToImages();
   };
 
   const handleNextClick = () => {
     setCurrentPage((prevPage) => prevPage + 1);
     navigate(`/page/${currentPage + 1}`);
-      dispatch(fetchCatImagesAsync(userSelectedBreed.id))
-      scrollToImages()
+    dispatch(fetchCatImagesAsync(userSelectedBreed.id));
+    scrollToImages();
   };
 
   return (

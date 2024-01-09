@@ -3,17 +3,28 @@ import { useState, useEffect } from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { GrView } from "react-icons/gr";
 import StarRating from "react-rating-stars-component";
+import { setShowPopup } from "../store/slices/uiSlice";
+import { useDispatch } from "react-redux";
 
 function ImageContainer({ image }) {
-  const [showPopup, setShowPopup] = useState(false);
+  const [showFavPopup, setShowFavPopup] = useState(false);
   const [randomViews, setRandomViews] = useState(0);
   const [favoriteClicked, setFavoriteClicked] = useState(false);
   const [randomUser, setRandomUser] = useState("");
+
+  const dispatch = useDispatch()
 
   const randomRating = (Math.floor(Math.random() * 4) + 7) / 2;
 
   const handleFavoriteClick = () => {
     setFavoriteClicked(!favoriteClicked);
+  
+    const text = favoriteClicked
+      ? "Removed from favorites"
+      : "Image has been added to favorites";
+  
+    dispatch(setShowPopup({ show: true, text}));
+  
     // Remove focus after 100ms
     setTimeout(() => {
       document.activeElement.blur();
@@ -22,9 +33,9 @@ function ImageContainer({ image }) {
 
   // Show popup on rating stars while clicked
   const handleRatingClick = () => {
-    setShowPopup(true);
+    setShowFavPopup(true);
     setTimeout(() => {
-      setShowPopup(false);
+      setShowFavPopup(false);
     }, 1000);
   };
 
@@ -54,7 +65,7 @@ function ImageContainer({ image }) {
           <div className="image-container__rating" onClick={handleRatingClick}>
             <div
               className={`image-container__popup ${
-                showPopup ? "rating-show-popup" : ""
+                showFavPopup ? "rating-show-popup" : ""
               }`}
             >
               <p>Rated!</p>

@@ -5,6 +5,7 @@ import {
   selectUserSelectedBreed,
   fetchCatImagesAsync,
   fetchCatImagesByTagsAsync,
+  selectCatBreeds
 } from "../store/slices/catImageSlice";
 import scrollToImages from "../helpers/scroll";
 
@@ -16,6 +17,7 @@ function Pagination() {
   const location = useLocation();
   const dispatch = useDispatch();
   const userSelectedBreed = useSelector(selectUserSelectedBreed);
+  const catBreeds = useSelector(selectCatBreeds)
 
   const handleWindowResize = useCallback(() => {
     setPageButtons(getPageButtons());
@@ -78,9 +80,8 @@ function Pagination() {
       setCurrentPage(pageNumber);
       // If user didn't select any breed yet set it to Random
       const selectedBreedId = userSelectedBreed?.id || "Random";
-      
-      // If first letter of the id is lowercase it means that tag has been selected, otherwise it's breed
-      if (selectedBreedId[0] === selectedBreedId[0].toLowerCase()) {
+
+      if (catBreeds.some((breed) => breed.id !== selectedBreedId)) {
         dispatch(fetchCatImagesByTagsAsync(selectedBreedId));
       } else {
         dispatch(fetchCatImagesAsync(selectedBreedId));

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  AiOutlineSend,
   AiOutlineAppstore,
   AiOutlineCaretDown,
   AiFillCalculator,
@@ -91,14 +90,6 @@ function NavigationOptions() {
   return (
     <div>
       <ul className="navigation__options-list">
-        <li>
-          <div className="navigation__option">
-            <div className="navigation__option-topic">
-              <AiOutlineSend className="navigation__shorties" />
-              <p className="navigation__option-topic-name">Shorties</p>
-            </div>
-          </div>
-        </li>
         <li>
           <div
             className="navigation__option"

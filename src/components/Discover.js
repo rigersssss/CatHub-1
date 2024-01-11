@@ -1,12 +1,20 @@
+import { useDispatch } from "react-redux";
+import { fetchCatImagesAsync } from "../store/slices/catImageSlice";
+import { setDisplayedBreedName, setActiveSuggestionButton } from "../store/slices/uiSlice";
 import { FaCat } from "react-icons/fa";
-import { AiOutlineSend, AiFillRead } from "react-icons/ai";
+import { AiFillRead, AiFillCalculator } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import scrollToImages from "../helpers/scroll";
 
 function Discover() {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
-  const handleShortiesClick = () => {
-    navigate("shorties");
+  const handleRandomClick = () => {
+    scrollToImages()
+    dispatch(fetchCatImagesAsync("Random"))
+    dispatch(setActiveSuggestionButton("Random"))
+    dispatch(setDisplayedBreedName("Random"))
   };
 
   const handleBreedsInfoClick = () => {
@@ -38,12 +46,12 @@ function Discover() {
         <div className="discover__tiles-box">
           <div
             className="discover__tile discover__tile--shorties"
-            onClick={handleShortiesClick}
+            onClick={handleRandomClick}
           >
             <div className="discover__tile-background discover__tile-background--shorties"></div>
             <div className="discover__tile-dark-filter"></div>
-            <AiOutlineSend className="discover__tile-topic" />
-            <p className="discover__tile-topic">Shorties</p>
+            <AiFillCalculator className="discover__tile-topic" />
+            <p className="discover__tile-topic">Random</p>
           </div>
           <div
             className="discover__tile discover__tile--breeds-info"

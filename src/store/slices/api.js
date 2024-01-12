@@ -1,7 +1,10 @@
 import axios from "axios";
 
-const tcaApiKey = process.env.TCA_API_KEY
-const pexelsApiKey = process.env.PEXELS_API_KEY
+const TCA_API_KEY =
+  "live_65caNqcO4RblXstT22gc6z7a4CafgqzfFsiWN4pwm287UNdajrH4wAikTDjYwjdW";
+
+const PEXELS_API_KEY =
+  "vP6R4K2xXnxI81F2c2k4YqDQMdFtnduri1xcYesv6dLHzxgq1ususS9X";
 
 // Getting Images with or without given breed (The Cat API)
 export const fetchCatImages = async (breedName = "") => {
@@ -15,7 +18,7 @@ export const fetchCatImages = async (breedName = "") => {
     }
 
     const response = await axios.get(apiUrl, {
-      params: { api_key: tcaApiKey },
+      params: { api_key: TCA_API_KEY },
     });
 
     // Shuffle the cat images urls randomly to prevent displaying images in the same order if there are less than 10 images
@@ -34,7 +37,7 @@ export const fetchCatImages = async (breedName = "") => {
 export const fetchCatBreeds = async () => {
   try {
     const response = await axios.get("https://api.thecatapi.com/v1/breeds", {
-      params: { api_key: tcaApiKey },
+      params: { api_key: TCA_API_KEY },
     });
     console.log("breeds response:", response.data);
     const catBreeds = response.data.map((breed) => ({
@@ -71,7 +74,7 @@ export const fetchCatImagesByTags = async (tag) => {
       `https://api.pexels.com/v1/search?query=${tag}+cat&per_page=80`,
       {
         headers: {
-          Authorization: pexelsApiKey,
+          Authorization: PEXELS_API_KEY,
         },
       }
     );

@@ -24,6 +24,9 @@
 @import "./styles/components/pagination.scss";
 @import "./styles/components/popup.scss";
 
+// media queries
+@import "./styles/mq_main.scss";
+
 *,
 *::before,
 *::after {

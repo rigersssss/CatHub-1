@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchCatBreeds, fetchCatImages, fetchCatImagesByTags } from "./api";
+import { fetchCatBreeds, fetchCatImages, fetchCatImagesByTags } from "./apis";
 
 // Get cat images
 export const fetchCatImagesAsync = createAsyncThunk(

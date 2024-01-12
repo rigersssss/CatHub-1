@@ -1,10 +1,7 @@
 import axios from "axios";
 
-const TCA_API_KEY =
-  "live_65caNqcO4RblXstT22gc6z7a4CafgqzfFsiWN4pwm287UNdajrH4wAikTDjYwjdW";
-
-const PEXELS_API_KEY =
-  "vP6R4K2xXnxI81F2c2k4YqDQMdFtnduri1xcYesv6dLHzxgq1ususS9X";
+const tcaApiKey = process.env.TCA_API_KEY
+const pexelsApiKey = process.env.PEXELS_API_KEY
 
 // Getting Images with or without given breed (The Cat API)
 export const fetchCatImages = async (breedName = "") => {
@@ -18,7 +15,7 @@ export const fetchCatImages = async (breedName = "") => {
     }
 
     const response = await axios.get(apiUrl, {
-      params: { api_key: TCA_API_KEY },
+      params: { api_key: tcaApiKey },
     });
 
     // Shuffle the cat images urls randomly to prevent displaying images in the same order if there are less than 10 images
@@ -29,7 +26,7 @@ export const fetchCatImages = async (breedName = "") => {
     return shuffledImageUrls;
   } catch (err) {
     console.error("Error fetching cat images:", err);
-    throw err;
+    throw err; 
   }
 };
 
@@ -37,9 +34,8 @@ export const fetchCatImages = async (breedName = "") => {
 export const fetchCatBreeds = async () => {
   try {
     const response = await axios.get("https://api.thecatapi.com/v1/breeds", {
-      params: { api_key: TCA_API_KEY },
+      params: { api_key: tcaApiKey },
     });
-    console.log("breeds response:", response.data);
     const catBreeds = response.data.map((breed) => ({
       // Main data
       name: breed.name,
@@ -74,7 +70,7 @@ export const fetchCatImagesByTags = async (tag) => {
       `https://api.pexels.com/v1/search?query=${tag}+cat&per_page=80`,
       {
         headers: {
-          Authorization: PEXELS_API_KEY,
+          Authorization: pexelsApiKey,
         },
       }
     );
@@ -91,7 +87,6 @@ export const fetchCatImagesByTags = async (tag) => {
       isLargeScreen ? photo.src.landscape : photo.src.large
     );
 
-    console.log("Fetched random images with tags:\n", images.join("\n"));
     return images;
   } catch (err) {
     console.error("Error fetching cat images by tags:", err);

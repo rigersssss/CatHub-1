@@ -40,6 +40,7 @@ If you wish to run the application locally on your device, follow these steps:
 
 1. Create a `.env` file in the root folder.
 2. Add your API keys to the `.env` file with the following format:
-
+```
 TCA_API_KEY=your_the_cat_api_key
 PEXELS_API_KEY=your_pexels_api_key
+```

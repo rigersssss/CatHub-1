@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# CatHub Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the CatHub documentation, where you can explore and enjoy cat pictures based on your preferences!
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+CatHub is a web application designed to provide a delightful experience for cat enthusiasts. The application allows users to fetch and display cat pictures tailored to their preferences regarding breeds and tags. In addition to a vast collection of cat images, CatHub offers detailed information about each cat breed, health care tips for cats, and various other resources.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Cat Pictures by Breed (The Cat API)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users can select a specific cat breed, and the application fetches adorable cat pictures using [The Cat API](https://thecatapi.com/). The breed information includes details such as temperament, energy levels, average weight, average lifespan, and more.
 
-### `npm test`
+### 2. Cat Pictures by Tag (Pexels API)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users can also choose to view cat pictures by entering tags. The application fetches images from [Pexels API](https://www.pexels.com/api/), providing a diverse selection of cat photos. Please note that there may be occasional issues with Pexels API, resulting in the inability to retrieve images via tags.
 
-### `npm run build`
+**Note:** Due to recent issues with Pexels API, image retrieval using tags may not function correctly. The API might be temporarily disabled, and key generation is currently unavailable. Check the Pexels API documentation for updates on the issue.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Cat Facts and Breed Information
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Explore interesting facts and detailed information about different cat breeds, including their attitude towards humans, energy levels, average weight, average lifespan, and more. This section aims to provide users with comprehensive insights into the featured cat breeds.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Health Care Tips and Resources
 
-### `npm run eject`
+CatHub goes beyond just images and breed information. Discover valuable resources and tips on how to care for your cat's health, ensuring a happy and fulfilling life for your feline friend.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 5. Search Functionality
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application includes a search feature allowing users to specify whether they want to view pictures of a particular breed, gather information about it, or explore health care tips.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Hosting Information
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+CatHub is currently hosted on Netlify, and you can access the live version of the application at [https://bzajc-cathub.netlify.app/](https://bzajc-cathub.netlify.app/).
 
-## Learn More
+## Local Development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+If you wish to run the application locally on your device, follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Create a `.env` file in the root folder.
+2. Add your API keys to the `.env` file with the following format:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+TCA_API_KEY=your_the_cat_api_key
+PEXELS_API_KEY=your_pexels_api_key

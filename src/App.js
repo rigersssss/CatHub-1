@@ -25,7 +25,6 @@ function App() {
           <Route path="privacypolicy" element={<PrivacyPolicyPage />} />
           <Route path="selection" element={<ImagesSelectionPage />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="*" element={<FastSelect />} />
           <Route path="breedsinfo" element={<BreedsInfoPage />} />
         </Routes>
       </Router>

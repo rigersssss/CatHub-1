@@ -55,6 +55,10 @@
     }
     &__github {
       font-size: 3rem;
+
+      a {
+        padding: 3rem 8rem;
+      }
     }
   }
   // Pagination {

@@ -1,13 +1,10 @@
 import { FaCat } from "react-icons/fa";
-import { AiOutlineSend, AiFillRead } from "react-icons/ai";
+import { AiFillRead } from "react-icons/ai";
+import { MdOutlinePrivacyTip } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 function Discover() {
   const navigate = useNavigate();
-
-  const handleShortiesClick = () => {
-    navigate("shorties");
-  };
 
   const handleBreedsInfoClick = () => {
     navigate("breedsinfo");
@@ -31,6 +28,10 @@ function Discover() {
     }, 100);
   };
 
+  const handlePrivacyPolicyClick = () => {
+    navigate("privacypolicy");
+  };
+
   return (
     <div className="discover">
       <p className="discover__tab">Discover</p>
@@ -38,12 +39,14 @@ function Discover() {
         <div className="discover__tiles-box">
           <div
             className="discover__tile discover__tile--shorties"
-            onClick={handleShortiesClick}
+            onClick={handlePrivacyPolicyClick}
           >
             <div className="discover__tile-background discover__tile-background--shorties"></div>
             <div className="discover__tile-dark-filter"></div>
-            <AiOutlineSend className="discover__tile-topic" />
-            <p className="discover__tile-topic">Shorties</p>
+            <MdOutlinePrivacyTip className="discover__tile-topic" />
+            <p className="discover__tile-topic">
+              Privacy Policy
+            </p>
           </div>
           <div
             className="discover__tile discover__tile--breeds-info"

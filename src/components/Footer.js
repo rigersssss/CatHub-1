@@ -64,7 +64,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer__no-func">
         <p className="footer__text-p1">
-          *The social media links and newsletter signup form are only a preview
+          *The contact and newsletter sections are only a preview
         </p>
       </div>
       <div className="footer__text">

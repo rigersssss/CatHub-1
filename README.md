@@ -16,8 +16,6 @@ Users can select a specific cat breed, and the application fetches adorable cat 
 
 Users can also choose to view cat pictures by entering tags. The application fetches images from [Pexels API](https://www.pexels.com/api/), providing a diverse selection of cat photos. Please note that there may be occasional issues with Pexels API, resulting in the inability to retrieve images via tags.
 
-**Note:** Due to recent issues with Pexels API, image retrieval using tags may not function correctly. The API might be temporarily disabled, and key generation is currently unavailable. Check the Pexels API documentation for updates on the issue.
-
 ### 3. Cat Facts and Breed Information
 
 Explore interesting facts and detailed information about different cat breeds, including their attitude towards humans, energy levels, average weight, average lifespan, and more. This section aims to provide users with comprehensive insights into the featured cat breeds.

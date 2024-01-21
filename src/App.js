@@ -10,7 +10,6 @@ import NotFoundPage from "./pages/NotFoundPage";
 import ImagesSelectionPage from "./pages/ImagesSelectionPage";
 import BreedsInfoPage from "./pages/BreedsInfoPage";
 import Popup from "./components/Popup";
-import FastSelect from "./components/FastSelect";
 
 function App() {
   return (

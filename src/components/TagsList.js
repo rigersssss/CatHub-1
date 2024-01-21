@@ -1,7 +1,7 @@
 import { FaPaw } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { fetchCatImagesByTagsAsync } from "../store/slices/catImageSlice";
-import { setShowNav, setActiveSuggestionButton } from "../store/slices/uiSlice";
+import { setShowNav, setActiveSuggestionButton, setDisplayedBreedName } from "../store/slices/uiSlice";
 import scrollToImages from "../helpers/scroll";
 
 function TagsList({handleFullListClick}) {
@@ -10,6 +10,7 @@ function TagsList({handleFullListClick}) {
   const handleClick = (tag) => {
     dispatch(fetchCatImagesByTagsAsync(tag))
     dispatch(setShowNav(false))
+    dispatch(setDisplayedBreedName(tag))
     setActiveSuggestionButton(tag)
     scrollToImages()
   }

@@ -14,7 +14,9 @@ Users can select a specific cat breed, and the application fetches adorable cat 
 
 ### 2. Cat Pictures by Tag (Pexels API)
 
-Users can also choose to view cat pictures by entering tags. The application fetches images from [Pexels API](https://www.pexels.com/api/), providing a diverse selection of cat photos.
+Users can also choose to view cat pictures by entering tags. The application fetches images from [Pexels API](https://www.pexels.com/api/), providing a diverse selection of cat photos. Please note that there may be occasional issues with Pexels API, resulting in the inability to retrieve images via tags.
+
+**Note:** Due to recent issues with Pexels API, image retrieval using tags may not function correctly. The API might be temporarily disabled, and key generation is currently unavailable. Check the Pexels API documentation for updates on the issue.
 
 ### 3. Cat Facts and Breed Information
 
@@ -36,8 +38,18 @@ CatHub is currently hosted on Netlify, and you can access the live version of th
 
 If you wish to run the application locally on your device, follow these steps:
 
-1. Create a `.env` file in the root folder.
-2. Add your API keys to the `.env` file with the following format:
+1. Create a `apiKeys.js` file in the slices folder (the one which contains apis.js).
+2. Add your API keys to the `apiKeys` file with the following format:
+```
+export const TCA = "your_the_cat_api_key"
+export const PEXELS = "your_pexels_key"
+```
 
-TCA_API_KEY=your_the_cat_api_key
-PEXELS_API_KEY=your_pexels_api_key
+OR in apis.js file just replace these TCA and PEXELS with your API keys:
+```
+const tcaApiKey = TCA
+const pexelsApiKey = PEXELS
+```
+
+## Additional Information
+The keys are stored in a .js file instead of a .env file due to CORS issues encountered when using the Pexels API in the context of implementing this project, which is entirely publicly accessible.

@@ -1,0 +1,109 @@
+@media (min-width: 768px) {
+  // Header
+  .header {
+    &__image-text {
+      font-size: 2.25rem;
+    }
+  }
+  // Main Page
+  .main {
+    &__limited-info {
+      text-align: center;
+    }
+  }
+  // Suggestions
+  .suggestions {
+    justify-content: center;
+
+    &__option {
+      font-size: 1.4rem;
+    }
+  }
+  // Selection
+  .selection {
+    &__h2 {
+      font-size: 2.5rem;
+    }
+    &__h2-subtext {
+      font-size: 1.75rem;
+    }
+    &__h3 {
+      font-size: 3rem;
+    }
+    &__h3-subtext {
+      font-size: 1.75rem;
+    }
+  }
+  // Image Container
+  .image-container {
+    height: 470px;
+    &__image {
+      max-height: 360px;
+    }
+    &__favorite-text {
+      font-size: 1.75rem;
+    }
+    &__username {
+      font-size: 1.5rem;
+    }
+    &__heart-icon {
+      font-size: 4rem;
+    }
+    &__react-stars {
+      display: none;
+    }
+    &__info-views {
+      font-size: 2rem;
+    }
+    &__info-views-icon {
+      font-size: 2.5rem;
+    }
+  }
+  // Navigation
+  .navigation {
+    &__side-menu {
+      width: 60%;
+    }
+    &__preview {
+      text-align: center;
+    }
+    &__sub-option-item {
+      padding: 0.75rem 0;
+    }
+  }
+  // User side panel
+  .user-side-panel {
+    &__menu {
+      width: 40%;
+    }
+  }
+  // Up Button
+  .up-button {
+    left: 3%;
+  }
+  // Discover
+  .discover {
+    &__tab {
+      text-align: center;
+    }
+  }
+  // Catsino
+  .catsino {
+    &__container {
+      width: 400px;
+      height: 400px;
+    }
+    &__close-icon {
+      font-size: 3.5rem;
+    }
+    &__h3 {
+      font-size: 3rem;
+    }
+    &__text {
+      font-size: 2rem;
+    }
+    &__poker-icon {
+      font-size: 7rem;
+    }
+  }
+}

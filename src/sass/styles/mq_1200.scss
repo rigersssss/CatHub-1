@@ -1,0 +1,33 @@
+@media (min-width: 1200px) {
+  //   Up button
+  .up-button {
+    display: none;
+  }
+  // Header
+  .header {
+    &__bottom-button {
+      font-size: 2rem;
+    }
+  }
+  // Navigation
+  .navigation {
+    &__logo {
+      width: 140px;
+    }
+    &__close {
+      font-size: 4rem;
+    }
+    &__sub-option-button {
+      font-size: 1.75rem;
+    }
+    &__option-topic-name {
+      font-size: 2.25rem;
+    }
+  }
+// Selection
+.selection {
+    &__container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 240px));
+    }
+}
+}

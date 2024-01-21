@@ -1,7 +1,8 @@
 import axios from "axios";
+import { TCA, PEXELS } from "./apiKeys"
 
-const tcaApiKey = process.env.TCA_API_KEY
-const pexelsApiKey = process.env.PEXELS_API_KEY
+const tcaApiKey = TCA
+const pexelsApiKey = PEXELS
 
 // Getting Images with or without given breed (The Cat API)
 export const fetchCatImages = async (breedName = "") => {

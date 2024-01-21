@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  AiOutlineSend,
   AiOutlineAppstore,
   AiOutlineCaretDown,
   AiFillCalculator,
@@ -9,8 +8,9 @@ import {
   AiFillRead,
   AiFillGithub,
   AiFillHeart,
+  AiFillFilePpt,
 } from "react-icons/ai";
-import { FaCat, FaFish, FaExternalLinkAlt } from "react-icons/fa";
+import { FaCat, FaExternalLinkAlt } from "react-icons/fa";
 import TagsList from "./TagsList";
 import BreedsList from "./BreedsList";
 import CommunitiesList from "./CommunitiesList";
@@ -62,6 +62,11 @@ function NavigationOptions() {
     dispatch(setShowNav(false));
   };
 
+  const handlePrivacyPolicyClick = () => {
+    navigate("privacypolicy")
+    dispatch(setShowNav(false));
+  }
+
   const handleSubListClick = (data) => {
     switch (data) {
       case "tags":
@@ -91,14 +96,6 @@ function NavigationOptions() {
   return (
     <div>
       <ul className="navigation__options-list">
-        <li>
-          <div className="navigation__option">
-            <div className="navigation__option-topic">
-              <AiOutlineSend className="navigation__shorties" />
-              <p className="navigation__option-topic-name">Shorties</p>
-            </div>
-          </div>
-        </li>
         <li>
           <div
             className="navigation__option"
@@ -176,10 +173,10 @@ function NavigationOptions() {
       </button>
       <p className="navigation__preview">*Above button is only for a preview</p>
       <div className="navigation__other-options">
-        <a href="google.com" className="navigation__other-option">
-          <FaFish className="navigation__other-option-icon"/>
-          <p>Treats</p>
-        </a>
+        <button href="google.com" className="navigation__other-option" onClick={handlePrivacyPolicyClick}>
+          <AiFillFilePpt className="navigation__other-option-icon"/>
+          <p>Privacy Policy</p>
+        </button>
         <button className="navigation__other-option" onClick={handleBreedsInfoClick}>
           <AiFillRead className="navigation__other-option-icon"/>
           <p>Breeds Info</p>

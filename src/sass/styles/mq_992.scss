@@ -1,0 +1,129 @@
+@media (min-width: 992px) {
+    // Selection
+    .selection {
+        &__h2 {
+            font-size: 3rem;
+        }
+        &__h2-subtext {
+            font-size: 2rem;
+        }
+    }
+  // Header
+  .header {
+    &__image-text {
+      top: 45%;
+    }
+    &__logo {
+      width: 175px;
+    }
+    &__icon {
+      font-size: 5rem;
+    }
+    &__bottom-button {
+      font-size: 2.5rem;
+      padding: 2rem 6rem;
+    }
+  }
+    // Navigation
+    .navigation {
+        &__logo {
+            width: 160px;
+        }
+        &__close {
+            font-size: 5rem;
+        }
+        &__side-menu {
+          width: 50%;
+        }
+        &__sub-option-button {
+            font-size: 2.25rem;
+        }
+        &__option-topic-name {
+            font-size: 3rem;
+        }
+      }
+  // Suggestions
+  .suggestions {
+    &__option {
+      font-size: 1.75rem;
+    }
+  }
+  // Main
+  .main {
+    &__h2 {
+      font-size: 3.25rem;
+    }
+    &__github {
+      font-size: 3rem;
+    }
+  }
+  // Pagination {
+  .pagination {
+    &__li {
+      width: 70px;
+      height: 70px;
+    }
+    &__option {
+      font-size: 2.75rem;
+    }
+  }
+  // Discover
+  .discover {
+    &__tab {
+      font-size: 4rem;
+    }
+    &__tile {
+      width: 300px;
+      height: 200px;
+      font-size: 3.5rem;
+    }
+  }
+  // Footer
+  .footer {
+    max-width: 800px;
+    &__privacy-policy-icon {
+      font-size: 4.5rem;
+    }
+    &__privacy-policy-text {
+      font-size: 2rem;
+    }
+    &__text {
+      font-size: 2rem;
+    }
+    &__text-p2 {
+      font-size: 2rem;
+    }
+    &__FAQ-option {
+      font-size: 2rem;
+    }
+    &__contact-box--data {
+      font-size: 2rem;
+    }
+    &__contact-input {
+      font-size: 3rem;
+      input,
+      textarea {
+        font-size: 3rem;
+      }
+    }
+  }
+    // Catsino
+    .catsino {
+        &__container {
+          width: 600px;
+          height: 600px;
+        }
+        &__close-icon {
+          font-size: 5rem;
+        }
+        &__h3 {
+          font-size: 4rem;
+        }
+        &__text {
+          font-size: 3rem;
+        }
+        &__poker-icon {
+          font-size: 10rem;
+        }
+      }
+}

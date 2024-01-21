@@ -1,0 +1,184 @@
+@media (min-width: 576px) {
+  // Header
+  .header {
+    &__logo {
+      width: 125px;
+    }
+    &__icon {
+      font-size: 3.5rem;
+    }
+    &__bottom-button {
+      font-size: 1.75rem;
+    }
+    &__image-text {
+      font-size: 1.75rem;
+    }
+  }
+
+  // Main
+  .main {
+    &__h1 {
+      font-size: 2.5rem;
+    }
+    &__limited-info {
+      font-size: 1.35rem;
+    }
+    &__h2 {
+      font-size: 2.25rem;
+    }
+  }
+
+  // Search Input
+  .search {
+    margin-bottom: 2rem;
+    &__input {
+      padding: 2rem;
+      font-size: 2rem;
+    }
+    &__results-element {
+      font-size: 1.75rem;
+    }
+  }
+
+  // Up Button
+  .up-button {
+    width: 55px;
+    height: 55px;
+  }
+
+  // Pagination
+  .pagination {
+    &__li {
+      width: 55px;
+      height: 55px;
+    }
+  }
+
+  // Breeds Info
+  .breeds-info {
+    &__header-text {
+      font-size: 1.75rem;
+      &--icon {
+        font-size: 4rem;
+      }
+    }
+
+    &__below-header-info {
+      font-size: 1.5rem;
+    }
+
+    &__sort-button {
+      padding: 1rem 6rem;
+
+      &--data,
+      &--toggle {
+        font-size: 2.25rem;
+      }
+    }
+
+    &__reset-sort-button {
+      font-size: 2rem;
+    }
+
+    &__cat-text {
+      &--name {
+        font-size: 2.5rem;
+      }
+      &--temperament {
+        font-size: 1.75rem;
+        font-weight: 300;
+      }
+      &--description {
+        font-size: 1.25rem;
+      }
+      &--lifespan,
+      &--weight {
+        font-size: 2rem;
+      }
+      &--trait-name {
+        font-size: 2rem;
+      }
+      &--trait-amount {
+        font-size: 2.25rem;
+      }
+      &--more {
+        font-size: 1.5rem;
+      }
+      &--link {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  // Navigation
+  .navigation {
+    &__preview {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    &__other-options {
+      width: 80%;
+      margin: 0 auto;
+    }
+    &__other-option {
+      font-size: 3rem;
+    }
+  }
+
+  // Privacy Policy
+  .privacy-policy {
+    font-size: 1.5rem;
+  }
+
+  // Footer
+  .footer {
+    &__text-p1 {
+      font-size: 1.5rem;
+    }
+
+    &__text-p2 {
+      font-size: 1.5rem;
+    }
+
+    &__contact-box {
+      font-size: 1.5rem;
+    }
+    &__contact-follow-text {
+      font-size: 2rem;
+    }
+    &__contact-input-box {
+      font-size: 2rem;
+
+      input {
+        font-size: 2rem;
+      }
+
+      textarea {
+        font-size: 2rem;
+      }
+    }
+    &__contact-icon {
+      font-size: 3rem;
+    }
+    &__newsletter-input {
+      font-size: 2rem;
+    }
+    &__newsletter-confirm-icon {
+      font-size: 3rem;
+    }
+    &__newsletter-icon {
+      font-size: 3rem;
+    }
+    &__privacy-policy-icon {
+      font-size: 3rem;
+    }
+  }
+
+  // Image Container
+  .image-container {
+    &__username {
+      border-bottom: 1px solid $orange;
+      padding-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,2 @@
+export const TCA = "live_vVVhjXVwgSqt8ptHvuqbciK74RULhfcOQOzG8TDfINwG6cmDCeF8bUA2dIQ3ZJRD"
+export const PEXELS = "ldU2GQcK3inyieqaoaJTWh9IsKYHYQsDX3aUJ6gpExHstVSsv0rSbAPC"

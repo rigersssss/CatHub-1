@@ -11,10 +11,17 @@ function ImageContainer({ image }) {
   const [randomViews, setRandomViews] = useState(0);
   const [favoriteClicked, setFavoriteClicked] = useState(false);
   const [randomUser, setRandomUser] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const dispatch = useDispatch()
 
   const randomRating = (Math.floor(Math.random() * 4) + 7) / 2;
+
+  const starRatingSize = (() => {
+    if (windowWidth > 992) return 44;
+    if (windowWidth > 768) return 38;
+    return 32;
+  })();
 
   const handleFavoriteClick = () => {
     setFavoriteClicked(!favoriteClicked);
@@ -49,7 +56,20 @@ function ImageContainer({ image }) {
   useEffect(() => {
     const views = Math.floor(Math.random() * (500000 - 300 + 1)) + 300;
     setRandomViews(views);
+  }, [windowWidth]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+  
+    window.addEventListener("resize", handleResize);
+  
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+
 
   return (
     <div className="image-container">
@@ -60,7 +80,7 @@ function ImageContainer({ image }) {
         <div className="image-container__info">
           <div className="image-container__info-wrapper">
             <p className="image-container__info-views">{randomViews}</p>
-            <GrView />
+            <GrView className="image-container__info-views-icon"/>
           </div>
           <div className="image-container__rating" onClick={handleRatingClick}>
             <div
@@ -72,7 +92,7 @@ function ImageContainer({ image }) {
             </div>
             <StarRating
               count={5}
-              size={32}
+              size={starRatingSize}
               activeColor="#ff9000"
               isHalf={true}
               value={randomRating}

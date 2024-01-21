@@ -23,3 +23,6 @@ bfg-1.14.0.jar
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# api
+./store/slices/apiKeys.js

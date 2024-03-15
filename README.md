@@ -48,6 +48,3 @@ OR in apis.js file just replace these TCA and PEXELS with your API keys:
 const tcaApiKey = TCA
 const pexelsApiKey = PEXELS
 ```
-
-## Additional Information
-The keys are stored in a .js file instead of a .env file due to CORS issues encountered when using the Pexels API in the context of implementing this project, which is entirely publicly accessible.

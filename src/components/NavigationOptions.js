@@ -191,7 +191,7 @@ function NavigationOptions() {
           </p>
         </a>
         <a
-          href="https://www.arealme.com/what-kind-of-cat-are-you/en/"
+          href="https://github.com/BZajc/CatHub"
           className="navigation__other-option"
         >
           <AiFillGithub className="navigation__other-option-icon"/>

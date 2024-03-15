@@ -20,6 +20,8 @@ import {
   setShowUserSidePanel,
   setShowPopup
 } from "../store/slices/uiSlice";
+import { setUserSelectedBreed, fetchCatImagesAsync } from "../store/slices/catImageSlice";
+import { setDisplayedBreedName, setActiveSuggestionButton } from "../store/slices/uiSlice";
 
 function Header() {
   const [showSearch, setShowSearch] = useState(false);
@@ -40,6 +42,10 @@ function Header() {
 
   const handleLogoClick = () => {
     navigate("/");
+    dispatch(setUserSelectedBreed("Random")); // object with breed name and id
+    dispatch(setActiveSuggestionButton("Random")); // add class to button so it looks like it was clicked
+    dispatch(fetchCatImagesAsync("Random")); // fetching images with id of the chosen breed
+    dispatch(setDisplayedBreedName("Random")); // setting breed name as text in main__h2
   };
 
   const handleMoreCatsClick = () => {

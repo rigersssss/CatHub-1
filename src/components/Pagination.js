@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
+  selectCatBreeds,
   selectUserSelectedBreed,
   fetchCatImagesAsync,
   fetchCatImagesByTagsAsync,
@@ -16,6 +17,7 @@ function Pagination() {
   const location = useLocation();
   const dispatch = useDispatch();
   const userSelectedBreed = useSelector(selectUserSelectedBreed);
+  const catBreeds = useSelector(selectCatBreeds);
 
   const handleWindowResize = useCallback(() => {
     setPageButtons(getPageButtons());
@@ -80,11 +82,14 @@ function Pagination() {
       const selectedBreedId = userSelectedBreed?.id || "Random";
       
       // If first letter of the id is lowercase it means that tag has been selected, otherwise it's breed
-      if (selectedBreedId[0] === selectedBreedId[0].toLowerCase()) {
-        dispatch(fetchCatImagesByTagsAsync(selectedBreedId));
-      } else {
+      if (catBreeds.some(breed => breed.id === selectedBreedId)) {
         dispatch(fetchCatImagesAsync(selectedBreedId));
+      } else {
+        dispatch(fetchCatImagesByTagsAsync(selectedBreedId));
       }
+
+
+
       navigate(`/page/${pageNumber}`);
       scrollToImages();
     }, 600);
@@ -131,3 +136,4 @@ function Pagination() {
 }
 
 export default Pagination;
+

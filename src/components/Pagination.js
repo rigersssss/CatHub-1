@@ -80,15 +80,13 @@ function Pagination() {
       setCurrentPage(pageNumber);
       // If user didn't select any breed yet set it to Random
       const selectedBreedId = userSelectedBreed?.id || "Random";
-      
-      // If first letter of the id is lowercase it means that tag has been selected, otherwise it's breed
+ 
+      // If the selected breed is in the catBreeds array, fetch images by breed id
       if (catBreeds.some(breed => breed.id === selectedBreedId)) {
         dispatch(fetchCatImagesAsync(selectedBreedId));
       } else {
         dispatch(fetchCatImagesByTagsAsync(selectedBreedId));
       }
-
-
 
       navigate(`/page/${pageNumber}`);
       scrollToImages();

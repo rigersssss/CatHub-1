@@ -28,6 +28,15 @@ CatHub goes beyond just images and breed information. Discover valuable resource
 
 The application includes a search feature allowing users to specify whether they want to view pictures of a particular breed, gather information about it, or explore health care tips.
 
+## Technologies Used
+
+- HTML: Markup language for structuring the web pages.
+- SCSS: CSS preprocessor for styling the web pages.
+- JavaScript: Programming language for adding interactivity to the web pages.
+- React: JavaScript library for building user interfaces.
+- Redux: JavaScript library for managing application state.
+- REST API: Architecture style for designing networked applications.
+
 ## Hosting Information
 
 CatHub is currently hosted on Netlify, and you can access the live version of the application at [https://bzajc-cathub.netlify.app/](https://bzajc-cathub.netlify.app/).

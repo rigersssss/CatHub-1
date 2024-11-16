@@ -1,10 +1,10 @@
 # CatHub Documentation
 
-Welcome to the CatHub documentation, where you can explore and enjoy cat pictures based on your preferences!
+Welcome to the CatHub documentation, where you can explore and enjoy cat pictures.
 
 ## Project Overview
 
-CatHub is a web application designed to provide a delightful experience for cat enthusiasts. The application allows users to fetch and display cat pictures tailored to their preferences regarding breeds and tags. In addition to a vast collection of cat images, CatHub offers detailed information about each cat breed, health care tips for cats, and various other resources.
+CatHub is a web application/cat encyclopedia designed to provide a delightful experience for cat enthusiasts. The application allows users to fetch and display cat pictures tailored to their preferences regarding breeds and tags. In addition to a vast collection of cat images, CatHub offers detailed information about each cat breed, health care tips for cats, and various other resources.
 
 ## Features
 
@@ -51,6 +51,10 @@ If you wish to run the application locally on your device, follow these steps:
 export const TCA = "your_the_cat_api_key"
 export const PEXELS = "your_pexels_key"
 ```
+
+you can get these keys from below links:
+The Cat API: https://thecatapi.com/
+Pexels API: https://www.pexels.com/api/
 
 OR in apis.js file just replace these TCA and PEXELS with your API keys:
 ```

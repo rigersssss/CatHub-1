@@ -53,8 +53,8 @@ export const PEXELS = "your_pexels_key"
 ```
 
 you can get these keys from below links:
-The Cat API: https://thecatapi.com/
-Pexels API: https://www.pexels.com/api/
+The Cat API: [https://thecatapi.com/](https://thecatapi.com/)
+Pexels API: [https://www.pexels.com/api/](https://www.pexels.com/api/)
 
 OR in apis.js file just replace these TCA and PEXELS with your API keys:
 ```
